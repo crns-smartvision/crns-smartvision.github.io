@@ -4,23 +4,9 @@
   <meta charset="utf-8">
   <meta name="description"
         content="LipReading">
-  <meta name="keywords" content="LipReading, D-NeRF, NeRF">
+  <meta name="keywords" content="LipReading, LRW-AR, FusionNet>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>LipReading</title>
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-PYVRSFMDRL');
-  </script>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -50,38 +36,7 @@
       <span aria-hidden="true"></span>
     </a>
   </div>
-<!--  <div class="navbar-menu">-->
-<!--    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">-->
-<!--      <a class="navbar-item" href="https://keunhong.com">-->
-<!--      <span class="icon">-->
-<!--          <i class="fas fa-home"></i>-->
-<!--      </span>-->
-<!--      </a>-->
-
-<!--      <div class="navbar-item has-dropdown is-hoverable">-->
-<!--        <a class="navbar-link">-->
-<!--          More Research-->
-<!--        </a>-->
-<!--        <div class="navbar-dropdown">-->
-<!--          <a class="navbar-item" href="https://hypernerf.github.io">-->
-<!--            HyperNeRF-->
-<!--          </a>-->
-<!--          <a class="navbar-item" href="https://nerfies.github.io">-->
-<!--            Nerfies-->
-<!--          </a>-->
-<!--          <a class="navbar-item" href="https://latentfusion.github.io">-->
-<!--            LatentFusion-->
-<!--          </a>-->
-<!--          <a class="navbar-item" href="https://photoshape.github.io">-->
-<!--            PhotoShape-->
-<!--          </a>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-
-<!--  </div>-->
 </nav>
-
 
 <section class="hero">
   <div class="hero-body">
@@ -119,6 +74,7 @@
                   <span>Paper</span>
                 </a>
               </span>
+              <!-- arxiv Link. -->
               <span class="link-block">
                 <a
                    class="external-link button is-normal is-rounded is-dark">
@@ -128,17 +84,7 @@
                   <span>arXiv</span>
                 </a>
               </span>
-              <!-- Video Link. -->
-<!--              <span class="link-block">-->
-<!--                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"-->
-<!--                   class="external-link button is-normal is-rounded is-dark">-->
-<!--                  <span class="icon">-->
-<!--                      <i class="fab fa-youtube"></i>-->
-<!--                  </span>-->
-<!--                  <span>Video</span>-->
-<!--                </a>-->
-<!--              </span>-->
-              <!-- Code Link. -->
+              <!-- github Link. -->
               <span class="link-block">
                 <a
                    class="external-link button is-normal is-rounded is-dark">
@@ -299,13 +245,6 @@
 
 <!--        &lt;!&ndash; Interpolating. &ndash;&gt;-->
 <!--        <h3 class="title is-4">Input video</h3>-->
-<!--        <div class="content has-text-justified">-->
-<!--          <p>-->
-<!--            We can also animate the scene by interpolating the deformation latent codes of two input-->
-<!--            frames. Use the slider here to linearly interpolate between the left frame and the right-->
-<!--            frame.-->
-<!--          </p>-->
-<!--        </div>-->
 <!--        <div class="columns is-vcentered interpolation-panel">-->
 <!--          <div class="column is-3 has-text-centered">-->
 <!--            <img src="./static/images/interpolate_start.jpg"-->
@@ -331,21 +270,15 @@
 <!--        <br/>-->
 <!--        &lt;!&ndash;/ Interpolating. &ndash;&gt;-->
 
-        <!-- Re-rendering. -->
         <div class="content has-text-justified">
           <p>
             Using a fusion method <span class="dnerf">FusionNet</span> with cross-attention networks, our approach enhances visual and geometric features integration for more accurate Arabic word prediction in lipreading. Additionally, the creation of LRW-AR, the first large-scale Arabic lipreading dataset, shows the effectiveness and feasibility of lipreading techniques in the Arabic language.
-
-
           </p>
         </div>
         <div class="content has-text-centered">
           <img src="./static/images/architecture_web.png">
         </div>
         <div class="content has-text-justified">
-<!--          <p>-->
-<!--            Our proposed approach composed of multiple sub-networks:-->
-<!--          </p>-->
           <p>
             <span class="dnerf">Video preprocessing:</span> crop the mouth region from the input video sequence and obtain the corresponding facial landmarks.
           </p>
