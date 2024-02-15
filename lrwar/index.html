@@ -259,40 +259,33 @@
     <!-- LRW-AR dataset. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">LRW-AR dataset</h2>
+        <h2 class="title is-3">LRW-AR Lipreading Dataset</h2>
 
         <div class="content has-text-justified">
           <p>
-            Using a fusion method <span class="dnerf">FusionNet</span> with cross-attention networks, our approach enhances visual and geometric features integration for more accurate Arabic word prediction in lipreading. Additionally, the creation of LRW-AR, the first large-scale Arabic lipreading dataset, shows the effectiveness and feasibility of lipreading techniques in the Arabic language.
-
-
+            We collect a naturally distributed large-scale lip reading dataset for Arabic language by scrapping videos from Youtube platform of talking people from News TV programs.
           </p>
+          <p>
+            Data processing was done via an automated pipeline :
+          </p>
+
         </div>
         <div class="content has-text-centered">
-          <img src="./static/images/architecture_web.png">
+          <img src="./static/images/data_collection.png">
         </div>
         <div class="content has-text-justified">
-          <!--          <p>-->
-          <!--            Our proposed approach composed of multiple sub-networks:-->
-          <!--          </p>-->
           <p>
-            <span class="dnerf">Video preprocessing:</span> crop the mouth region from the input video sequence and obtain the corresponding facial landmarks.
+            Using this pipeline we were able to obtain 100 classes, each corresponding to a different word.
           </p>
           <p>
-            <span class="dnerf">Visual-feature network:</span> extract relevant information from the preprocessed data.
+            LRW-AR dataset involves a total of 36 speakers.
           </p>
           <p>
-            <span class="dnerf">Geometric-feature network:</span> encodes lip contour variation delivered by facial landmarks.
+            Were each word was uttered 200 times, resulting in a total of 20,000 video samples.
           </p>
-          <p>
-            <span class="dnerf">FusionNet network:</span> fuses the encoded features.
-          </p>
-          <p>
-            <span class="dnerf">Sequence back-end network:</span> based on a multi-scale temporal convolutional network (MS-TCN) to encode temporal variation and classify the input video sequence.
 
-          </p>
         </div>
-        <!--/ Re-rendering. -->
+        <!-- / LRW-AR dataset. -->
 
       </div>
     </div>
