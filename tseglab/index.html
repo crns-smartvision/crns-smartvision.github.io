@@ -63,9 +63,9 @@
                         <h1 class="title is-1 publication-title">TSegLab: multi-stage 3D dental scan segmentation and labeling</h1>
                                   <div class="is-size-5 publication-authors">
                                     <span class="author-block">
-                                      <a href="">Ahmed Rekik</a><sup>1, 2</sup>,</span>
+                                      <a href="rekikamed.github.io">Ahmed Rekik</a><sup>1, 2</sup>,</span>
                                     <span class="author-block">
-                                      <a href="">Achraf Ben-Hamadou</a><sup>1, 2</sup>,</span>
+                                      <a href="abenhamadou.github.io">Achraf Ben-Hamadou</a><sup>1, 2</sup>,</span>
                                     <span class="author-block">
                                       <a href="">Oussama Smaoui</a><sup>2</sup>,
                                     </span>
@@ -81,8 +81,8 @@
                                   </div>
 
                            <div class="is-size-5 publication-authors">
-                            <span class="author-block"><sup>1</sup>Centre de Recherche en Numerique de Sfax, Tunisia</span>
-                            <span class="author-block"><sup>2</sup>Udini, France</span>
+                            <span class="author-block"><sup>1</sup>Centre de Recherche en Numerique de Sfax, Tunisia</span><br>
+                            <span class="author-block"><sup>2</sup>Udini, France</span><br>
                             <span class="author-block"><sup>3</sup>Inria, Univ. Grenoble Alpes, CNRS, Grenoble INP, LJK, France</span>
                           </div>
 
@@ -125,7 +125,7 @@
                                 </span>
 
 
-                                <!-- Github Link. -->
+                                <!-- Github Link.
                                 <span class="link-block">
                                     <a href="https://github.com/nihalsid/stylegan2-ada-3d-texture" class="external-link button is-normal is-rounded is-dark">
                                         <span class="icon">
@@ -133,7 +133,7 @@
                                         </span>
                                         <span>Code</span>
                                     </a>
-                                </span>
+                                </span>-->
                                 <!-- Dataset Link. -->
                                 <span class="link-block"></span>
                             </div>
@@ -202,7 +202,7 @@
 			            <div id="mesh_car_3" class="render_div"></div>
                     </div>
                 </div>
-                <div style="text-align: center;">Press <b>G</b> to toggle between geometry and <span class="dnerf">Texturified</span> meshes. Press <b>R</b> to reset view. </div>
+                <div style="text-align: center;">Press <b>R</b> to reset view. </div>
             </div>
         </div>
     </section>
@@ -391,8 +391,7 @@
       archivePrefix={arXiv},
       primaryClass={cs.CV}
 }
-
-}</code></pre>
+</code></pre>
         </div>
     </section>
 
@@ -442,6 +441,12 @@
 
         import { PLYLoader } from './js/PLYLoader.js';
         import { OrbitControls } from './js/OrbitControls.js'
+        // const API = {
+		// 		lightProbeIntensity: 1.0,
+		// 		directionalLightIntensity: 0.6,
+		// 		envMapIntensity: 1
+        // };
+
         let div_to_scene = {
             "mesh_chair_0": {
                 "geo": null,
@@ -556,9 +561,9 @@
                 let height = container.parentElement.clientHeight;
 
 
-                div_to_scene[div_id]["color"] = new THREE.Scene();
+                // div_to_scene[div_id]["color"] = new THREE.Scene();
                 div_to_scene[div_id]["geo"] = new THREE.Scene();
-                div_to_scene[div_id]["color"].background = new THREE.Color( 0xffffff );
+                // div_to_scene[div_id]["color"].background = new THREE.Color( 0xffffff );
                 div_to_scene[div_id]["geo"].background = new THREE.Color( 0xffffff );
 
                 // PLY file
@@ -567,14 +572,19 @@
                 loader.load( mesh_path, function ( geometry ) {
 
                     geometry.computeVertexNormals();
-                    let material_color = new THREE.MeshBasicMaterial( { color: 0xffffff, vertexColors: THREE.VertexColors} );
-                    let material_geo = new THREE.MeshStandardMaterial( { color: 0x444444, flatShading: true } )
+                    let material_color = new THREE.MeshBasicMaterial( {
+                        color: 0xffffff,
+                        vertexColors: THREE.VertexColors,
+                        roughness: 1,
+                        wireframe: false,
+                        envMap: THREE.reflection} );
+                    let material_geo = new THREE.MeshStandardMaterial( { vertexColors: THREE.VertexColors, roughness: 0.5, color: 0x444444, }); // flatShading: true, envMapIntensity: API.envMapIntensity } )
 
 
-                    const mesh_color = new THREE.Mesh( geometry, material_color );
+                    // const mesh_color = new THREE.Mesh( geometry, material_color );
                     const mesh_geo = new THREE.Mesh( geometry, material_geo );
 
-                    div_to_scene[div_id]["color"].add( mesh_color );
+                    // div_to_scene[div_id]["color"].add( mesh_color );
                     div_to_scene[div_id]["geo"].add( mesh_geo );
 
                 }, (xhr) => {
@@ -585,10 +595,10 @@
                 );
 
                 // lights
-
-                div_to_scene[div_id]["geo"].add( new THREE.HemisphereLight( 0x333333, 0x222222 ) );
+                div_to_scene[div_id]["geo"].add( new THREE.HemisphereLight( 0xffffff, 0xffffff ) );
                 addShadowedLight(div_to_scene[div_id]["geo"], 1, 1, 1, 0xffffff, 1.35 );
-                addShadowedLight(div_to_scene[div_id]["geo"],  0.5, 1, - 1, 0xffffff, 1 );
+                addShadowedLight(div_to_scene[div_id]["geo"],  0.5, 1, - 1, 0xffffff, 1.5);
+                addShadowedLight(div_to_scene[div_id]["geo"],  0, 0, 0, 0xffffff, 1 );
 
                 // renderer
 
@@ -598,6 +608,9 @@
                 renderer.outputEncoding = THREE.sRGBEncoding;
 
                 renderer.shadowMap.enabled = true;
+                // Assuming renderer is your THREE.WebGLRenderer instance
+                renderer.domElement.addEventListener('dblclick', onDoubleClick, false);
+
 
                 container.appendChild( renderer.domElement );
 
@@ -609,6 +622,39 @@
                 window.addEventListener( 'resize', onWindowResize );
 
         }
+        function onDoubleClick(event) {
+                // Convert mouse coordinates to normalized device coordinates (NDC)
+                const mouse = new THREE.Vector2();
+                mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+                mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+                // Raycasting to find intersections with the mesh
+                const raycaster = new THREE.Raycaster();
+                raycaster.setFromCamera(mouse, camera); // Assuming 'camera' is your THREE.PerspectiveCamera instance
+
+                // Find intersected points
+                const intersects = raycaster.intersectObject(div_to_scene[div_id]["geo"]);
+                    console.log("intersected", intersects.length)
+                // Check if any points are intersected
+                if (intersects.length > 0) {
+                    // Get the selected point
+                    const selectedPoint = intersects[0].point;
+                    camera.position.copy(selectedPoint);
+
+                    // Look at the center of the scene (you can adjust this based on your needs)
+                    camera.lookAt(0, 0, 0);
+
+                    // Update the camera's matrices
+                    camera.updateProjectionMatrix();
+                    camera.updateMatrixWorld();
+
+                    // Do something with the selected point if needed
+                    console.log('Selected Point:', selectedPoint);
+
+                    // Do something with the selected point
+                    console.log('Selected Point:', selectedPoint);
+                }
+            }
             function onWindowResize() {
                 let width = container.clientWidth;
                 let height = container.clientHeight;
@@ -622,7 +668,8 @@
             }
 
             function render() {
-                renderer.render( div_to_scene[div_id][render_colors ? "color" : "geo"], camera );
+                // renderer.render( div_to_scene[div_id][render_colors ? "color" : "geo"], camera );
+                renderer.render( div_to_scene[div_id]["geo"], camera );
                 controls.update();
             }
 
@@ -691,6 +738,7 @@
 
                 controls = new OrbitControls(camera, renderer.domElement)
                 controls.enableDamping = false
+                renderer.domElement.addEventListener('dblclick', onDoubleClick, false);
 
                 // resize
 
@@ -710,7 +758,7 @@
             }
 
             function render() {
-                let scene = render_colors ? div_to_render_scene[div_id][style_id]: div_to_render_scene[div_id]["geo"]
+                let scene =  div_to_render_scene[div_id]["geo"] //render_colors ? div_to_render_scene[div_id][style_id]:
                 renderer.render( scene, camera );
                 controls.update();
             }
@@ -745,9 +793,9 @@
         document.addEventListener('keydown', logKey);
 
         function logKey(evt) {
-            if (evt.keyCode === 71 && !mouse_button_down) {
-                switch_geometry()
-            }
+            // if (evt.keyCode === 71 && !mouse_button_down) {
+            //     switch_geometry()
+            // }
             if (evt.keyCode === 82 && !mouse_button_down) {
                 reset_orbit_controls()
             }
