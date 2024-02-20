@@ -576,7 +576,7 @@
                         color: 0xffffff,
                         vertexColors: THREE.VertexColors,
                         roughness: 1,
-                        wireframe: false,
+                        wireframe: true,
                         envMap: THREE.reflection} );
                     let material_geo = new THREE.MeshStandardMaterial( { vertexColors: THREE.VertexColors, roughness: 0.5, color: 0x444444, }); // flatShading: true, envMapIntensity: API.envMapIntensity } )
 
@@ -648,6 +648,7 @@
                     camera.updateProjectionMatrix();
                     camera.updateMatrixWorld();
 
+                     controls.target.copy(selectedPoint);
                     // Do something with the selected point if needed
                     console.log('Selected Point:', selectedPoint);
 
