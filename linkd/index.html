@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="description"
         content="LRW-AR">
-  <meta name="keywords" content="LipReading, LRW-AR, LRW, Arabic">
+  <meta name="keywords" content="LipReading, LR-CAR, LRW, Arabic">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LRW-AR</title>
+  <title>LR-CAR</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -43,7 +43,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Cross-Attention Fusion of Visual and Geometric Features for Large Vocabulary Arabic Lipreading</h1>
+          <h1 class="title is-1 publication-title">LiNKD: Leveraging knowledge distillation for lip reading on limited near-infrared data</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               Samar Daou<sup>1</sup>,</span>
@@ -76,7 +76,7 @@
               </span> -->
               <!-- arxiv Link. -->
               <span class="link-block">
-                <a href = "https://arxiv.org/abs/2402.11520" class="external-link button is-normal is-rounded is-dark">
+                <a href = "" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
                   </span>
@@ -85,7 +85,7 @@
               </span>
               <!-- github Link. -->
               <span class="link-block">
-                <a href="https://github.com/crns-smartvision/lrwar" class="external-link button is-normal is-rounded is-dark">
+                <a href="https://github.com/crns-smartvision/linkd" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
@@ -94,7 +94,7 @@
               </span>
               <!-- Dataset Link. -->
               <span class="link-block">
-                <a href="https://osf.io/rz49x" class="external-link button is-normal is-rounded is-dark">
+                <a href="" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="far fa-images"></i>
                   </span>
@@ -112,11 +112,14 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="./static/images/image2578.png"
+      <img src="./static/images/merged_image1_5_ir.png"
+           class="interpolation-image"
+           alt="Interpolate start reference image."/>
+      <img src="./static/images/merged_image1_5_rgb.png"
            class="interpolation-image"
            alt="Interpolate start reference image."/>
       <h2 class="subtitle has-text-centered">
-       A selection of speakers from the LRW-AR dataset showcasing diverse facial expressions and lip movements.
+       Samples from the LR-CAR dataset. The top row shows RGB images and the bottom row displays near-infrared images.
       </h2>
     </div>
   </div>
@@ -133,10 +136,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Lipreading involves using visual data to recognize spoken words by analyzing the movements of the lips and surrounding area. It is a hot research topic with many potential applications, such as human-machine interaction and enhancing audio speech recognition.
-            Recent deep-learning based works aim to integrate visual features extracted from the mouth region with landmark points on the lip contours. However, employing a simple combination method such as concatenation may not be the most effective approach to get the optimal feature vector. To address this challenge, firstly, we propose a cross-attention fusion based approach for large lexicon Arabic vocabulary to predict spoken words in videos. Our method leverages the power of cross-attention networks to efficiently integrate visual and geometric features computed on the mouth region.
-            Secondly, we introduce the first large-scale Arabic lipreading dataset (LRW-AR) containing 20,000 videos for 100-word classes, uttered by 36 speakers.
-            The experimental results obtained on LRW-AR and ArabicVisual databases showed the effectiveness and robustness of the proposed approach in recognizing Arabic words. Our work provides insights into the feasibility and effectiveness of applying lipreading techniques to the Arabic language, opening doors for further research in this field.
+             In scenarios involving driver-car interaction, effective communication is vital for maintaining safety and operational efficiency. Conventional communication methods, like voice commands and manual inputs, can be impractical and unsafe, especially in noisy or dynamic environments. Lipreading offers a compelling alternative by utilizing visual cues from lip movements and facial expressions. However, existing lipreading techniques typically depend on RGB cameras, which can struggle with the variable lighting conditions found in vehicle interiors, making near-infrared imaging a more suitable option. The scarcity of near-infrared data presents challenges, as merely fine-tuning RGB models is inadequate. To overcome this limitation, we propose a knowledge distillation approach that transfers features from pre-trained RGB models to near-infrared models, thereby enhancing performance with the limited available near-infrared data. Additionally, we introduce LR-CAR, the first dual-modality dataset for driver-car interaction which includes both RGB and near-infrared modalities. Our results indicate that this method significantly boosts lipreading performance, achieving an impressive 26.51% improvement over basic fine-tuning.
           </p>
         </div>
       </div>
@@ -151,29 +151,26 @@
     <!-- LRW-AR dataset. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">LRW-AR Lipreading Dataset</h2>
+        <h2 class="title is-3">LR-CAR Lipreading Dataset</h2>
 
         <div class="content has-text-justified">
-          <p>
-            We collect a naturally distributed large-scale lip reading dataset for Arabic language by scrapping videos from Youtube platform of talking people from News TV programs.
-          </p>
           <p>
             Data processing was done via an automated pipeline :
           </p>
 
         </div>
         <div class="content has-text-centered">
-          <img src="./static/images/data_collection.png">
+          <img src="./static/images/lr-car-pipeline.png">
         </div>
         <div class="content has-text-justified">
           <p>
-            Using this pipeline we were able to obtain <strong> 100 classes </strong>, each corresponding to a different word.
+            <strong>LR-CAR</strong> dataset was recorded from two different cameras in the same time: <strong>RGB</strong> and <strong>Near-Infrared</strong> camera.
           </p>
           <p>
-            LRW-AR dataset involves a total of <strong> 36 speakers </strong>.
+            <strong>29 speakers</strong> were involved to obtain a global number of 1044 utterances.
           </p>
           <p>
-            Were each word was uttered <strong> 200 times </strong>, resulting in a total of <strong> 20,000 video samples </strong>.
+            Each speaker repeated 12 representative car commands three times.
           </p>
 
         </div>
@@ -191,44 +188,44 @@
           <div id="results-carousel" class="carousel results-carousel">
             <div class="item item-steve">
               <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-                <source src="./static/videos/111.mp4"
+                <source src="./static/videos/1.mp4"
                         type="video/mp4">
               </video>
             </div>
             <div class="item item-chair-tp">
               <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-                <source src="./static/videos/113.mp4"
+                <source src="./static/videos/2.mp4"
                         type="video/mp4">
               </video>
             </div>
             <div class="item item-shiba">
               <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-                <source src="static/videos/112.mp4"
+                <source src="static/videos/3.mp4"
                         type="video/mp4">
               </video>
 
             </div>
             <div class="item item-blueshirt">
               <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-                <source src="./static/videos/114.mp4"
+                <source src="./static/videos/4.mp4"
                         type="video/mp4">
               </video>
             </div>
             <div class="item item-mask">
               <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-                <source src="./static/videos/115.mp4"
+                <source src="./static/videos/5.mp4"
                         type="video/mp4">
               </video>
             </div>
             <div class="item item-coffee">
               <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-                <source src="./static/videos/116.mp4"
+                <source src="./static/videos/6.mp4"
                         type="video/mp4">
               </video>
             </div>
             <div class="item item-toby">
               <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-                <source src="./static/videos/117.mp4"
+                <source src="./static/videos/7.mp4"
                         type="video/mp4">
               </video>
             </div>
@@ -271,31 +268,15 @@
 <!--        <br/>-->
 <!--        &lt;!&ndash;/ Interpolating. &ndash;&gt;-->
 
-        <div class="content has-text-justified">
-          <p>
-            Using a fusion method <span class="dnerf">FusionNet</span> with cross-attention networks, our approach enhances visual and geometric features integration for more accurate Arabic word prediction in lipreading. Additionally, the creation of LRW-AR, the first large-scale Arabic lipreading dataset, shows the effectiveness and feasibility of lipreading techniques in the Arabic language.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <img src="./static/images/architecture_web.jpg">
-        </div>
-        <div class="content has-text-justified">
-          <p>
-            <span class="dnerf">Video preprocessing:</span> crop the mouth region from the input video sequence and obtain the corresponding facial landmarks.
-          </p>
-          <p>
-            <span class="dnerf">Visual-feature network:</span> extract relevant information from the preprocessed data.
-          </p>
-          <p>
-            <span class="dnerf">Geometric-feature network:</span> encodes lip contour variation delivered by facial landmarks.
-          </p>
-          <p>
-            <span class="dnerf">FusionNet network:</span> fuses the encoded features.
-          </p>
-          <p>
-            <span class="dnerf">Sequence back-end network:</span> based on a multi-scale temporal convolutional network (MS-TCN) to encode temporal variation and classify the input video sequence.
 
+        <div class="content has-text-centered">
+          <img src="./static/images/ewc_short-1.png">
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Overview of the EWC method across two training phases: In Phase 1, the model is trained on RGB data. Key parameters are identified using the Fisher Information matrix. In Phase 2, the model is trained on near-infrared data. A regularization term is applied to protect critical parameters from Phase 1. This approach allows the model to retain RGB knowledge while adapting to near-infrared input.
           </p>
+
         </div>
         <!--/ Re-rendering. -->
 
@@ -309,14 +290,14 @@
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>
-@misc{daou2024crossattention,
-      title={Cross-Attention Fusion of Visual and Geometric Features for Large Vocabulary Arabic Lipreading},
-      author={Samar Daou and Ahmed Rekik and Achraf Ben-Hamadou and Abdelaziz Kallel},
-      year={2024},
-      eprint={2402.11520},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
-}
+<!--@misc{daou2024crossattention,-->
+<!--      title={Cross-Attention Fusion of Visual and Geometric Features for Large Vocabulary Arabic Lipreading},-->
+<!--      author={Samar Daou and Ahmed Rekik and Achraf Ben-Hamadou and Abdelaziz Kallel},-->
+<!--      year={2024},-->
+<!--      eprint={2402.11520},-->
+<!--      archivePrefix={arXiv},-->
+<!--      primaryClass={cs.CV}-->
+<!--}-->
     </code></pre>
   </div>
 </section>
