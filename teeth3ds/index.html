@@ -1,12 +1,316 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Teeth3DS+</title>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Teeth3DS+ is an extended benchmark to support intraoral 3D scans analysis to boost AI in dentistry.">
+  <meta name="keywords" content="Intraoral, Teeth3DS, Teeth3DS+, intraoral 3D Scans, Dentistry">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teeth3DS+ Benchmark</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
 </head>
 <body>
 
-Under construction. Please come back later.
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="true">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="crns-smartvision.github.io">
+      <span class="icon"><i class="fas fa-home"></i></span></a>
+
+    <div class="navbar-item">
+          <a class="navbar-item" href="#3DTeethSegSec">3DTeethSeg'22</a>
+    </div>
+      <div class="navbar-item">
+        <a class="navbar-item" href="#3DTeethLandSec">
+            3DTeethLand'24</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"><b>Teeth3DS+</b>: An Extended Benchmark for Intraoral 3D Scans Analysis</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://abenhamadou.github.io">Achraf Ben-Hamadou</a><sup>1</sup>,</span>
+            <span class="author-block">Nour Neifar<sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://rekikamed.github.io">Ahmed Rekik</a><sup>1</sup>,</span>
+            <span class="author-block">Oussama Smaoui<sup>2</sup>,</span>
+            <span class="author-block">Firas Bouzguenda<sup>2</sup>,</span>
+            <span class="author-block">Sergi Pujades<sup>3</sup>,</span>
+            <span class="author-block">Edmond Boyer<sup>3</sup>,</span>
+            <span class="author-block">Edouard Ladroit <sup>2</sup></span>
+          </div>
+
+
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Digital Research Center of Sfax, Tunisia</span><br>
+            <span class="author-block"><sup>2</sup>Udini SA, France</span><br>
+            <span class="author-block"><sup>3</sup>Inria Grenoble, France</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2210.06094"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2210.06094"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+<!--              <span class="link-block">-->
+<!--                <a href="https://www.youtube.com/"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="fab fa-youtube"></i>-->
+<!--                  </span>-->
+<!--                  <span>Video</span>-->
+<!--                </a>-->
+<!--              </span>-->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+
+      <h2 class="subtitle has-text-centered">
+        Teeth3DS+ offers a large variablity of intraoral 3D Scans with  .... TODO </h2>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present the first ...
+          </p>
+          <p>
+          </p>
+          <p>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+
+
+<section class="section" id="3DTeethSegSec">
+  <div class="container is-max-desktop">
+
+        <div class="content">
+          <h2 class="title is-3">3DTeethSeg Challenge MICCAI 2022</h2>
+          <p>
+TODO
+          </p>
+
+        </div>
+
+              <img src="./static/images/Grand-Challenge-Banner.jpeg"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+
+    <div class="columns is-centered">
+
+      <!-- . -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Data description</h2>
+          <p>
+            TODO
+          </p>
+
+
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+        <h2 class="title is-3">Section </h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              TODO
+            </p>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!--/ Matting. -->
+    <!-- Animation. -->
+</section>
+
+
+<section class="section" id="3DTeethLandSec">
+    <div class="container is-max-desktop">
+        <h2 class="title is-3">3DTeethLand Challenge MICCAI 2024</h2>
+
+<!--        &lt;!&ndash; Interpolating. &ndash;&gt;-->
+<!--        <h3 class="title is-4">Interpolating states</h3>-->
+<!--        <div class="content has-text-justified">-->
+<!--          <p>-->
+<!--            We can also animate the scene by interpolating the deformation latent codes of two input-->
+<!--            frames. Use the slider here to linearly interpolate between the left frame and the right-->
+<!--            frame.-->
+<!--          </p>-->
+<!--        </div>-->
+<!--        <div class="columns is-vcentered interpolation-panel">-->
+<!--          <div class="column is-3 has-text-centered">-->
+<!--            <img src="./static/images/interpolate_start.jpg"-->
+<!--                 class="interpolation-image"-->
+<!--                 alt="Interpolate start reference image."/>-->
+<!--            <p>Start Frame</p>-->
+<!--          </div>-->
+<!--          <div class="column interpolation-video-column">-->
+<!--            <div id="interpolation-image-wrapper">-->
+<!--              Loading...-->
+<!--            </div>-->
+<!--            <input class="slider is-fullwidth is-large is-info"-->
+<!--                   id="interpolation-slider"-->
+<!--                   step="1" min="0" max="100" value="0" type="range">-->
+<!--          </div>-->
+<!--          <div class="column is-3 has-text-centered">-->
+<!--            <img src="./static/images/interpolate_end.jpg"-->
+<!--                 class="interpolation-image"-->
+<!--                 alt="Interpolation end reference image."/>-->
+<!--            <p class="is-bold">End Frame</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <br/>-->
+<!--        &lt;!&ndash;/ Interpolating. &ndash;&gt;-->
+
+        <img src="./static/images/3Dteethland_banner.png"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+
+
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+@article{ben2022teeth3ds,
+title={{Teeth3Ds+: An Extended Benchmark for Intra-oral 3D Scans Analysis}},
+author={Ben-Hamadou, Achraf and Neifar, Nour and Rekik, Ahmed and Smaoui, Oussama and Bouzguenda, Firas and Pujades, Sergi and  Boyer, Edmond and Ladroit, Edouard},
+journal={arXiv preprint arXiv:2210.06094},
+year={2022}
+}
+    </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
