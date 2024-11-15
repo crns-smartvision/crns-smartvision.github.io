@@ -20,7 +20,7 @@
             background-color: #f4f4f4;
         }
     </style>
-    <title>Scrollable Table</title>
+
   <meta charset="utf-8">
   <meta name="description"
         content="Teeth3DS+ is an extended benchmark to support intraoral 3D scans analysis to boost AI in dentistry.">
@@ -103,7 +103,7 @@ $('#return-to-top').click(function() {      // When arrow is clicked
                 <a href="https://rekikamed.github.io">Ahmed Rekik</a><sup>1</sup>,</span>
               <span class="author-block">Oussama Smaoui<sup>2</sup>,</span>
               <span class="author-block">Firas Bouzguenda<sup>2</sup>,</span>
-              <span class="author-block">Sergi Pujades<sup>3</sup>,</span>
+              <span class="author-block"><a href="https://morpheo.inrialpes.fr/people/pujades/">Sergi Pujades</a><sup>3</sup>,</span>
               <span class="author-block">Edmond Boyer<sup>3</sup>,</span>
               <span class="author-block">Edouard Ladroit <sup>2</sup></span>
             </div>
@@ -477,20 +477,20 @@ year={2023}
             An example of the scanname_arch_kpt.json file format is shown below:
           </p>
           <pre><code id="json-code" class="json">{
-            "version":"1.0",
-            "description":"landmarks",
-            "key":"01A6HAN6_lower.obj",  # lower arch of scan named 01A6HAN6, which can be found in Teeth3DS files.
-            "objects":[  # list of landmarks 
-               {
-                  "key":"uuid_0",  # unique id for the keypoint
-                  "class":"Mesial", # the class of the keypoint
-                  "coord":[  # xyz coordinate of the keypoint
-                     2.3146634105298736,
-                     -14.671770076868356,
-                     -82.42080180486484
+    "version":"1.0",
+    "description":"landmarks",
+    "key":"01A6HAN6_lower.obj",  # lower arch of scan named 01A6HAN6, which can be found in Teeth3DS files.
+    "objects":[  # list of landmarks
+    {
+        "key":"uuid_0",  # unique id for the keypoint
+        "class":"Mesial", # the class of the keypoint
+        "coord":[  # xyz coordinate of the keypoint
+            2.3146634105298736,
+            -14.671770076868356,
+            -82.42080180486484
                   ]
-               },....
-         }</code></pre>
+    },....
+}</code></pre>
          <h3>Download</h3>
          The landmark annotation files for the 3DTeeth scans can be downloaded from the following link:
          url : <a href="https://osf.io/xctdy/">https://osf.io/um96h/</a>
