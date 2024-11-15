@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .table-container {
+            overflow-x: auto; /* Enables horizontal scrolling */
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+    <title>Scrollable Table</title>
   <meta charset="utf-8">
   <meta name="description"
         content="Teeth3DS+ is an extended benchmark to support intraoral 3D scans analysis to boost AI in dentistry.">
@@ -209,10 +229,14 @@ $('#return-to-top').click(function() {      // When arrow is clicked
       <div class="column is-justify-content-left" >
         <div class="content">
           <p> The challenge 3DTeethSeg22 is a first edition associated with MICCAI 2022. It is organized by Udini (France) in collaboration with Inria Grenoble Morpheo team (France) and the Digital Research Center of Sfax (Tunisia).</p>
+          <h3>Main objective</h3>
+          <p>The main objective of the 3DTeethSeg’22 challenge was to develop and evaluate algorithms for teeth localization, segmentation, and labeling from intra-oral 3D scans.
+             This challenge aimed to address the difficulties posed by variations in dental anatomy, imaging protocols, and the limited availability of publicly accessible data, 
+             ultimately advancing automated teeth analysis for improved dental diagnostics and treatment planning.</p>
           <h3>Data description</h3>
           <p>
             A total of 1800 3D intra-oral scans have been collected for 900 patients covering their upper and lower jaws separately. The ground truth tooth labels and tooth instances for each vertex in the obj files are provided in JavaScript Object Notation (JSON) format. A JSON file example is shown below:
-
+            
 
 
 <pre><code id="json-code" class="json">{
@@ -396,14 +420,230 @@ year={2023}
         <img src="./static/images/3Dteethland_banner.png"
                  class="interpolation-image"
                  alt="Interpolate start reference image."/>
+  </div>
 
+  <div class="container is-max-desktop">
+    <div class="column is-justify-content-left" >
+      <div class="content">
+        <p>The challenge 3DTeethLand is the second edition of the 3DTeethSeg22 challenge associated with MICCAI 2024. 
+          It is organized by Udini (France) in collaboration with Inria Grenoble Morpheo team (France) and the Digital Research Center of Sfax (Tunisia).</p>
+        <p>In the previous edition of the challenge, known as 3DTeethSeg22 challenge, the focus was on teeth segmentation and labeling from intraoral 3D scans. Building upon this foundation and seeking to enhance our comprehension of intraoral scans, we are thrilled to introduce a more complex task in this challenge: 3D Teeth Landmark Detection.</p>
+        <h3>Main objective</h3>
+          <p>The objective of the 3D Teeth Landmark Detection task is to create algorithms that can automatically identify essential landmarks on individual teeth using 3D intraoral scans.
+            These landmarks play a vital role in orthodontic treatment planning and assessment by providing crucial anatomical references for tooth alignment and positioning.</p>
+        <h3>Data Description</h3>
+          <p>
+            To facilitate accurate analysis and understanding of tooth positioning and alignment, we define
+            specific dental landmarks on each tooth, as illustrated in the figure below.
+          </p>
 
+          <!-- Container for the image and text -->
+          <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px; align-items: center;">
+            
+            <!-- Text Description Section -->
+            <div>
+              <h4>1- Mesial (red) and Distal (green) Points:</h4>
+              <p>
+                These points are located on the proximal surfaces of the tooth. The mesial point is on the side of the tooth closer to the midline of the mouth, while the distal point is on the side farther from the midline. These points are important for determining the alignment and positioning of the tooth in the dental arch.
+              </p>
+            
+              <h4>2- Cusp Point (blue):</h4>
+              <p>
+                The cusp is the pointed or rounded mound on the chewing surface of a tooth. The cusp point is located at the highest point of the cusp. It is significant for understanding the occlusion (bite) relationship between the upper and lower teeth.
+              </p>
+            
+              <h4>3- Inner (yellow) and Outer (cyan) Points:</h4>
+              <p>
+                These points are located at the limits of the tooth, where the tooth meets the gingiva (gum tissue). The inner point is on the inner side of the tooth, closer to the tongue or palate, while the outer point is on the outer side of the tooth, closer to the cheek or lips. These points are important for determining the pose of the tooth, including its orientation.
+              </p>
+            
+              <h4>4- Facial Axis (magenta) Point:</h4>
+              <p>
+                This point is located at the midpoint of the facial surface of each tooth. The facial surface is the surface of the tooth that is visible from the front of the mouth. The facial axis point is important for determining the angulation and inclination of the tooth.
+              </p>
+            </div>
 
+            <!-- Image Section -->
+            <div style="max-width: 100%; text-align: center;">
+              <img src="static/images/image1475.png" alt="Tooth Points Diagram" style="width:100%; max-width: 500px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+            </div>
+          </div>
+          <p>The landmarks annotated dataset consisting of 340 intraoralscans (IOS). 
+            This dataset is divided into two main groups: 240 scans from the Teeth3DS dataset, used as
+            the training set for the 3DTeethLand Challenge and containing segmentation and labeling annotations,
+            and an additional 100 scans without segmentation or labeling annotations, designated as the hidden
+            private test set.</p>
+          <p>The landmarks annotations are provided in JavaScript Object Notation (JSON) format for each IOS scan in the Teeth3DS dataset.
+            An example of the scanname_arch_kpt.json file format is shown below:
+          </p>
+          <pre><code id="json-code" class="json">{
+            "version":"1.0",
+            "description":"landmarks",
+            "key":"01A6HAN6_lower.obj",  # lower arch of scan named 01A6HAN6, which can be found in Teeth3DS files.
+            "objects":[  # list of landmarks 
+               {
+                  "key":"uuid_0",  # unique id for the keypoint
+                  "class":"Mesial", # the class of the keypoint
+                  "coord":[  # xyz coordinate of the keypoint
+                     2.3146634105298736,
+                     -14.671770076868356,
+                     -82.42080180486484
+                  ]
+               },....
+         }</code></pre>
+         <h3>Download</h3>
+         The landmark annotation files for the 3DTeeth scans can be downloaded from the following link:
+         url : <a href="https://osf.io/xctdy/">https://osf.io/um96h/</a>
+        <h3>Evaluation metrics</h3>
+        <h5>Mean Average Precision</h5>
+        
+        <p>The Mean Average Precision (mAP) evaluates the accuracy of keypoint localization by assessing both the confidence of predictions and their alignment with ground truth across multiple distance thresholds.
+        It is computed by first generating precision-recall curves at varying confidence score cutoffs, then calculating the area under these curves for each distance threshold and landmark category.
+        The mAP is derived by averaging the AP values across all thresholds for each category. A higher mAP reflects the model's ability to make confident, accurate predictions while minimizing false positives and poorly localized detections, emphasizing the precision aspect of model performance.
+        </p>
+        <h5>Mean Average Recall</h5>
+        <p>Mean Average Recall (mAR) measures the model's ability to detect all ground truth keypoints, providing an assessment of prediction completeness.
+         It is computed as the average recall across various distance thresholds. Recall is calculated at each threshold as the ratio of correctly detected keypoints to the total number of ground truth keypoints, 
+         and the area under the recall curve is determined for each landmark category across all thresholds. The mAR is then derived by averaging the AR values for each category, resulting in a separate mAR value for every landmark category. A higher mAR reflects the model's capacity to detect a significant proportion of true keypoints, independent of prediction confidence, making it a valuable metric for evaluating coverage.
+        </p>
+        <h5>Ranking</h5>
+        <p>To ensure robust rankings, we will employ a point-based ranking method enhanced by bootstrapping. The process begins with the computation of the mAP and mAR metrics for each landmark category. 
+          Teams are then pairwise compared for each metric using the Wilcoxon Signed Rank Test. A team is awarded one point for each comparison where it is deemed statistically superior (p-value < 0.001), resulting in a "total point count" that reflects the number of comparisons won. Bootstrapping is applied by resampling 10% of the data and repeating the pairwise comparison process on the remaining data, generating a "total point count" for each resampling iteration. 
+          This process is repeated 100 times. The final point score for each team is normalized by the total number of comparisons, calculated as 
+          The normalized scores are then aggregated to produce the final ranking, ensuring a statistically robust and fair evaluation of performance.</p>
+         <h3>Leaderboard</h3>
+        <div class="table-container">
+          <table>
+              <thead>
+                  <tr>
+                      <th>Team</th>
+                      <th>Method</th>
+                      <th>Rank Score</th>
+                      <th>AP_cusp</th>
+                      <th>AP_facial</th>
+                      <th>AP_inner_outer</th>
+                      <th>AP_mesial_distal</th>
+                      <th>mAP</th>
+                      <th>AR_cusp</th>
+                      <th>AR_facial</th>
+                      <th>AR_inner_outer</th>
+                      <th>AR_mesial_distal</th>
+                      <th>mAR</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>Radboud</td>
+                      <td></td>
+                      <td>0.9172</td>
+                      <td>0.772</td>
+                      <td>0.768</td>
+                      <td>0.793</td>
+                      <td>0.792</td>
+                      <td>0.785</td>
+                      <td>0.675</td>
+                      <td>0.637</td>
+                      <td>0.661</td>
+                      <td>0.651</td>
+                      <td>0.656</td>
+                  </tr>
+                  <tr>
+                      <td>ChohoTech</td>
+                      <td></td>
+                      <td>0.8325</td>
+                      <td>0.765</td>
+                      <td>0.761</td>
+                      <td>0.78</td>
+                      <td>0.781</td>
+                      <td>0.775</td>
+                      <td>0.627</td>
+                      <td>0.586</td>
+                      <td>0.625</td>
+                      <td>0.672</td>
+                      <td>0.634</td>
+                  </tr>
+                  <tr>
+                      <td>YY-LAB</td>
+                      <td></td>
+                      <td>0.6224</td>
+                      <td>0.684</td>
+                      <td>0.726</td>
+                      <td>0.748</td>
+                      <td>0.705</td>
+                      <td>0.719</td>
+                      <td>0.719</td>
+                      <td>0.569</td>
+                      <td>0.601</td>
+                      <td>0.576</td>
+                      <td>0.579</td>
+                  </tr>
+                  <tr>
+                      <td>YN-LAB</td>
+                      <td></td>
+                      <td>0.3171</td>
+                      <td>0.656</td>
+                      <td>0.667</td>
+                      <td>0.61</td>
+                      <td>0.657</td>
+                      <td>0.643</td>
+                      <td>0.538</td>
+                      <td>0.522</td>
+                      <td>0.511</td>
+                      <td>0.539</td>
+                      <td>0.527</td>
+                  </tr>
+                  <tr>
+                      <td>IGIP-LAB</td>
+                      <td></td>
+                      <td>0.1358</td>
+                      <td>0.636</td>
+                      <td>0.59</td>
+                      <td>0.634</td>
+                      <td>0.523</td>
+                      <td>0.59</td>
+                      <td>0.519</td>
+                      <td>0.445</td>
+                      <td>0.505</td>
+                      <td>0.41</td>
+                      <td>0.466</td>
+                  </tr>
+                  <tr>
+                      <td>CG_sayaka</td>
+                      <td></td>
+                      <td>0.1253</td>
+                      <td>0.574</td>
+                      <td>0.553</td>
+                      <td>0.531</td>
+                      <td>0.529</td>
+                      <td>0.541</td>
+                      <td>0.55</td>
+                      <td>0.476</td>
+                      <td>0.501</td>
+                      <td>0.481</td>
+                      <td>0.498</td>
+                  </tr>
+                  <tr>
+                      <td>3DIMLAND</td>
+                      <td></td>
+                      <td>0.0325</td>
+                      <td>0.594</td>
+                      <td>0.621</td>
+                      <td>0.551</td>
+                      <td>0.575</td>
+                      <td>0.578</td>
+                      <td>0.457</td>
+                      <td>0.459</td>
+                      <td>0.459</td>
+                      <td>0.459</td>
+                      <td>0.438</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+
+    </div>
   </div>
 </section>
-
-
-
 
 
 <footer class="footer">
