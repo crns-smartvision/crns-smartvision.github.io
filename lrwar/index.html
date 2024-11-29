@@ -48,10 +48,10 @@
             <span class="author-block">
               Samar Daou<sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://rekikamed.github.io">Ahmed Rekik</a><sup>1,2</sup>,</span>
-            <span class="author-block">
               <a href="https://abenhamadou.github.io">Achraf Ben-Hamadou</a><sup>1,2</sup>,
             </span>
+            <span class="author-block">
+              <a href="https://rekikamed.github.io">Ahmed Rekik</a><sup>1,2</sup>,</span>
             <span class="author-block">
               Abdelaziz Kallel<sup>1,2</sup>
             </span>
@@ -74,25 +74,24 @@
                   <span>Paper</span>
                 </a>
               </span> -->
-              <!-- arxiv Link.
+              <!-- arxiv Link. -->
               <span class="link-block">
-                <a class="external-link button is-normal is-rounded is-dark">
+                <a href = "https://arxiv.org/abs/2402.11520" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
                   </span>
                   <span>arXiv</span>
                 </a>
-              </span> -->
-              <!-- github Link.
+              </span>
+              <!-- github Link. -->
               <span class="link-block">
-                <a
-                   class="external-link button is-normal is-rounded is-dark">
+                <a href="https://github.com/crns-smartvision/lrwar" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
                   <span>Code</span>
                   </a>
-              </span> -->
+              </span>
               <!-- Dataset Link. -->
               <span class="link-block">
                 <a href="https://osf.io/rz49x" class="external-link button is-normal is-rounded is-dark">
@@ -113,7 +112,7 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="./static/images/image2578.png"
+      <img src="./static/images/lrwar.jpg"
            class="interpolation-image"
            alt="Interpolate start reference image."/>
       <h2 class="subtitle has-text-centered">
@@ -143,6 +142,75 @@
       </div>
     </div>
     <!--/ Abstract. -->
+  </div>
+</section>
+
+
+
+    <!-- Method overview. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method overview</h2>
+
+<!--        &lt;!&ndash; Interpolating. &ndash;&gt;-->
+<!--        <h3 class="title is-4">Input video</h3>-->
+<!--        <div class="columns is-vcentered interpolation-panel">-->
+<!--          <div class="column is-3 has-text-centered">-->
+<!--            <img src="./static/images/interpolate_start.jpg"-->
+<!--                 class="interpolation-image"-->
+<!--                 alt="Interpolate start reference image."/>-->
+<!--            <p>Start Frame</p>-->
+<!--          </div>-->
+<!--          <div class="column interpolation-video-column">-->
+<!--            <div id="interpolation-image-wrapper">-->
+<!--              Loading...-->
+<!--            </div>-->
+<!--            <input class="slider is-fullwidth is-large is-info"-->
+<!--                   id="interpolation-slider"-->
+<!--                   step="1" min="0" max="10" value="0" type="range">-->
+<!--          </div>-->
+<!--          <div class="column is-3 has-text-centered">-->
+<!--            <img src="./static/images/interpolate_end.jpg"-->
+<!--                 class="interpolation-image"-->
+<!--                 alt="Interpolation end reference image."/>-->
+<!--            <p class="is-bold">End Frame</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <br/>-->
+<!--        &lt;!&ndash;/ Interpolating. &ndash;&gt;-->
+
+        <div class="content has-text-justified">
+          <p>
+            Using a fusion method <span class="dnerf">FusionNet</span> with cross-attention networks, our approach enhances visual and geometric features integration for more accurate Arabic word prediction in lipreading. Additionally, the creation of LRW-AR, the first large-scale Arabic lipreading dataset, shows the effectiveness and feasibility of lipreading techniques in the Arabic language.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/images/architecture_web.jpg">
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            <span class="dnerf">Video preprocessing:</span> crop the mouth region from the input video sequence and obtain the corresponding facial landmarks.
+          </p>
+          <p>
+            <span class="dnerf">Visual-feature network:</span> extract relevant information from the preprocessed data.
+          </p>
+          <p>
+            <span class="dnerf">Geometric-feature network:</span> encodes lip contour variation delivered by facial landmarks.
+          </p>
+          <p>
+            <span class="dnerf">FusionNet network:</span> fuses the encoded features.
+          </p>
+          <p>
+            <span class="dnerf">Sequence back-end network:</span> based on a multi-scale temporal convolutional network (MS-TCN) to encode temporal variation and classify the input video sequence.
+
+          </p>
+        </div>
+        <!--/ Re-rendering. -->
+
+      </div>
+    </div>
   </div>
 </section>
 
@@ -238,84 +306,20 @@
       </div>
 </section>
 
-    <!-- Method overview. -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Method overview</h2>
-
-<!--        &lt;!&ndash; Interpolating. &ndash;&gt;-->
-<!--        <h3 class="title is-4">Input video</h3>-->
-<!--        <div class="columns is-vcentered interpolation-panel">-->
-<!--          <div class="column is-3 has-text-centered">-->
-<!--            <img src="./static/images/interpolate_start.jpg"-->
-<!--                 class="interpolation-image"-->
-<!--                 alt="Interpolate start reference image."/>-->
-<!--            <p>Start Frame</p>-->
-<!--          </div>-->
-<!--          <div class="column interpolation-video-column">-->
-<!--            <div id="interpolation-image-wrapper">-->
-<!--              Loading...-->
-<!--            </div>-->
-<!--            <input class="slider is-fullwidth is-large is-info"-->
-<!--                   id="interpolation-slider"-->
-<!--                   step="1" min="0" max="10" value="0" type="range">-->
-<!--          </div>-->
-<!--          <div class="column is-3 has-text-centered">-->
-<!--            <img src="./static/images/interpolate_end.jpg"-->
-<!--                 class="interpolation-image"-->
-<!--                 alt="Interpolation end reference image."/>-->
-<!--            <p class="is-bold">End Frame</p>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <br/>-->
-<!--        &lt;!&ndash;/ Interpolating. &ndash;&gt;-->
-
-        <div class="content has-text-justified">
-          <p>
-            Using a fusion method <span class="dnerf">FusionNet</span> with cross-attention networks, our approach enhances visual and geometric features integration for more accurate Arabic word prediction in lipreading. Additionally, the creation of LRW-AR, the first large-scale Arabic lipreading dataset, shows the effectiveness and feasibility of lipreading techniques in the Arabic language.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <img src="./static/images/architecture_web.png">
-        </div>
-        <div class="content has-text-justified">
-          <p>
-            <span class="dnerf">Video preprocessing:</span> crop the mouth region from the input video sequence and obtain the corresponding facial landmarks.
-          </p>
-          <p>
-            <span class="dnerf">Visual-feature network:</span> extract relevant information from the preprocessed data.
-          </p>
-          <p>
-            <span class="dnerf">Geometric-feature network:</span> encodes lip contour variation delivered by facial landmarks.
-          </p>
-          <p>
-            <span class="dnerf">FusionNet network:</span> fuses the encoded features.
-          </p>
-          <p>
-            <span class="dnerf">Sequence back-end network:</span> based on a multi-scale temporal convolutional network (MS-TCN) to encode temporal variation and classify the input video sequence.
-
-          </p>
-        </div>
-        <!--/ Re-rendering. -->
-
-      </div>
-    </div>
-  </div>
-</section>
 
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>
-<!--      @article{park2021nerfies,-->
-<!--  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},-->
-<!--  title     = {Nerfies: Deformable Neural Radiance Fields},-->
-<!--  journal   = {ICCV},-->
-<!--  year      = {2021},-->
-<!--}-->
+@misc{daou2024crossattention,
+      title={Cross-Attention Fusion of Visual and Geometric Features for Large Vocabulary Arabic Lipreading},
+      author={Samar Daou and Achraf Ben-Hamadou and Ahmed Rekik and Abdelaziz Kallel},
+      year={2024},
+      eprint={2402.11520},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
     </code></pre>
   </div>
 </section>
