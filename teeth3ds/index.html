@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+      <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q0129ZWTK1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-Q0129ZWTK1');
+    </script>
+
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .table-container {
+            overflow-x: auto; /* Enables horizontal scrolling */
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Teeth3DS+ is an extended benchmark to support intraoral 3D scans analysis to boost AI in dentistry.">
+  <meta name="keywords" content="Intraoral, Teeth3DS, Teeth3DS+, intraoral 3D Scans, Dentistry">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teeth3DS+ Benchmark</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!-- Return to Top -->
+<a href="javascript:" id="return-to-top"><i class="icon-chevron-up"></i></a>
+<script>
+    // ===== Scroll to Top ====
+$(window).scroll(function() {
+    if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
+        $('#return-to-top').fadeIn(200);    // Fade in the arrow
+    } else {
+        $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+    }
+});
+$('#return-to-top').click(function() {      // When arrow is clicked
+    $('body,html').animate({
+        scrollTop : 0                       // Scroll to top of body
+    }, 500);
+});
+    </script>
+
+
+<!--<nav class="navbar" role="navigation" aria-label="main navigation" style="background-color: #ffffff; position: fixed; justify-content: center; ">-->
+ <nav class="navbar" role="navigation" aria-label="main navigation" style="background-color: #ffffff; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+
+<!--    <div class="navbar-start" style="flex-grow: 2; position:fixed; justify-content: center;">-->
+<!--<div class="navbar-menu" style="display: flex; justify-content: center; align-items: center;">-->
+  <div class="navbar-container">
+<!--    <div class="navbar-item">-->
+      <a class="navbar-item" href="#">
+      <span class="icon"><i class="fas fa-home"></i></span></a>
+    </div>
+    <div class="navbar-item">
+          <a class="navbar-item" href="#3DTeethSegSec">3DTeethSeg'22</a>
+    </div>
+      <div class="navbar-item">
+        <a class="navbar-item" href="#3DTeethLandSec">
+            3DTeethLand'24</a>
+      </div>
+<!--    </div>-->
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"><b>Teeth3DS+</b>: An Extended Benchmark for Intraoral 3D Scans Analysis</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://abenhamadou.github.io">Achraf Ben-Hamadou</a><sup>1</sup>,</span>
+              <span class="author-block">Nour Neifar<sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://rekikamed.github.io">Ahmed Rekik</a><sup>1</sup>,</span>
+              <span class="author-block">Oussama Smaoui<sup>2</sup>,</span>
+              <span class="author-block">Firas Bouzguenda<sup>2</sup>,</span>
+              <span class="author-block"><a href="https://morpheo.inrialpes.fr/people/pujades/">Sergi Pujades</a><sup>3</sup>,</span>
+              <span class="author-block">Edmond Boyer<sup>3</sup>,</span>
+              <span class="author-block">Edouard Ladroit <sup>2</sup></span>
+            </div>
+
+            <div class="affiliations">
+              <ul>
+                <li><sup>1</sup>Digital Research Center of Sfax, Tunisia</li>
+                <li><sup>2</sup>Udini SA, France</li>
+                <li><sup>3</sup>Inria Grenoble, France</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+<div class="hero-body">
+      <h2 class="subtitle has-text-centered">
+      <img src="static/images/samples.jpg" style="border-radius: 10px; width: 70%; margin: 10px; float: center;">
+      </h2>
+
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+
+          Teeth3DS+ offers a large variablity of intraoral 3D Scans that are annotated for various perception tasks, typically teeth detection, segmentation, and labelling. In addition, dental landmarks are also annotated for a subset of the scans.
+          Teeth3DS+ was used for the organization of two MICCAI challenges: 3DTeethSeg in MICCAI 2022 at Singapore and 3DTeethLand MICCAI 2024 at Marrakesh.
+
+        </div>
+  </div>
+  </div>
+</section>
+
+
+
+<!--<section class="section">-->
+<!--  <div class="container is-max-desktop">-->
+<!--    &lt;!&ndash; Abstract. &ndash;&gt;-->
+<!--    <div class="columns is-centered has-text-centered">-->
+<!--      <div class="column is-four-fifths">-->
+<!--        <h2 class="title is-3">Abstract</h2>-->
+<!--        <div class="content has-text-justified">-->
+
+<!--          Teeth3DS+ offers a large variablity of intraoral 3D Scans that are annotated for various perception tasks, typically teeth detection, segmentation, and labelling. In addition, dental landmarks are also annotated for a subset of the scans.-->
+<!--            Teeth3DS+ was used for the organization of two MICCAI challenges: 3DTeethSeg in MICCAI 2022 at Singapore and 3DTeethLand MICCAI 2024 at Marrakesh.-->
+
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash;/ Abstract. &ndash;&gt;-->
+<!--  </div>-->
+<!--</section>-->
+
+
+
+
+<section class="section" id="3DTeethSegSec">
+  <div class="container is-max-desktop">
+
+    <div class="content">
+      <h2 class="title is-3">3DTeethSeg Challenge MICCAI 2022</h2>
+    </div>
+
+
+      <img src="./static/images/Grand-Challenge-Banner.jpeg"
+         class="interpolation-image"
+         />
+
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2210.06094"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2210.06094"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/abenhamadou/3DTeethSeg22_challenge"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://osf.io/xctdy/"
+                   class="external-link button is-normal is-rounded is-dark" target = "_blank">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+                </span>
+            </div>
+         </div>
+       </div>
+    </div>
+
+
+    <div class="container is-max-desktop">
+      <div class="column is-justify-content-left" >
+        <div class="content">
+          <p> The challenge 3DTeethSeg22 is a first edition associated with MICCAI 2022. It is organized by Udini (France) in collaboration with Inria Grenoble Morpheo team (France) and the Digital Research Center of Sfax (Tunisia).</p>
+          <h3>Main objective</h3>
+          <p>The main objective of the 3DTeethSeg’22 challenge was to develop and evaluate algorithms for teeth localization, segmentation, and labeling from intra-oral 3D scans.
+             This challenge aimed to address the difficulties posed by variations in dental anatomy, imaging protocols, and the limited availability of publicly accessible data, 
+             ultimately advancing automated teeth analysis for improved dental diagnostics and treatment planning.</p>
+          <h3>Data description</h3>
+          <p>
+            A total of 1800 3D intra-oral scans have been collected for 900 patients covering their upper and lower jaws separately. The ground truth tooth labels and tooth instances for each vertex in the obj files are provided in JavaScript Object Notation (JSON) format. A JSON file example is shown below:
+            
+
+
+<pre><code id="json-code" class="json">{
+    "id_patient": "6X24ILNE",
+    "jaw": "upper",
+    "labels": [0, 0, 44, 33, 34, 0, 0, 45, 0, .. ,41,  0, 0, 37, 0, 34, 45, 0, 31, 36],
+    "instances": [0, 0, 10, 2, 12, 0, 0, 9, 0, 0, .. , 10, 0, 0, 8, 0, 0, 9, 0, 1, 8, 13],
+}</code></pre>
+
+        <p>
+        The length of the tables "labels" and "instances" is the same as the total number of vertices in the corresponding 3D scan. The label and instance ”0” are reserved by default for gingiva. And, other than ”0”, the unique numbers in table ”instances” indicate the number of teeth in the 3D scan. The labels are provided in the FDI numbering system.
+        </p>
+
+          <h3> Download </h3>
+        <p>
+Dataset is structured under 6 data parts. It is required to download all of them and merge them to a same folder architecture.
+
+url : <a href="https://osf.io/xctdy/">https://osf.io/xctdy/</a>
+        </p>
+
+        <h3> Dataset splits </h3>
+        <p>
+Two dataset train/test splits are provided , which specify the samples to consider for each dataset:
+
+3D Teeth Seg Challenge split (used during the challenge)
+Teeth3DS official dataset split
+
+        </p>
+<img src="./static/images/train_test_split.jpg"  style="border-radius: 10px; width: 35%; margin: 10px;"/>
+
+
+          <h3> Evaluation metrics</h3>
+          <p>
+            <ul class="itemize">
+          <li>Teeth localization accuracy (<b>TLA</b>):
+calculated as the mean of normalized Euclidean distance between ground truth (GT) teeth centroids and the closest localized teeth centroid. Each computed Euclidean distance is normalized by the size of the corresponding GT tooth. In case of no centroid (e.g. algorithm crashes or missing output for a given scan) a nominal penalty of 5 per GT tooth will be given. This corresponds to a distance 5 times the actual GT tooth size. As the number of teeth per patient may be variable, here the mean is computed over all gathered GT Teeth in the two testing sets.</li>
+      <li>Teeth identification rate (<b>TIR</b>):
+is computed as the percentage of true identification cases relatively to all GT teeth in the two testing sets. A true identification is considered when for a given GT Tooth, the closest detected tooth centroid : is localized at a distance under half of the GT tooth size, and is attributed the same label as the GT tooth</li>
+  <li>Teeth segmentation accuracy (<b>TSA</b>): is computed as the average F1-score over all instances of teeth point clouds. The F1-score of each tooth instance is measured as: F1=2*(precision * recall)/(precision+recall)
+
+</ul>
+
+📌 NOTE: Metrics calculation scripts are gathered in <a href="https://github.com/abenhamadou/3DTeethSeg22_challenge/blob/main/evaluation/evaluation.py"> evaluation.py </a> in the challenge GitHub repository.
+          </p>
+            <h3>Leaderboard</h3>
+
+            <table>
+  <thead>
+    <tr>
+      <th>Team</th>
+      <th>Method</th>
+      <th>Exp(-TLA)</th>
+      <th>TSA</th>
+      <th>TIR</th>
+      <th>SCORE</th>
+      <th>Github link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CGIP</td>
+      <td></td>
+      <td>0.9658</td>
+      <td><b>0.9859</b></td>
+      <td>0.9100</td>
+      <td><b>0.9539</b></td>
+      <td><a href="https://github.com/CGIP">GitHub</a></td>
+    </tr>
+    <tr>
+      <td>FiboSeg</td>
+      <td></td>
+      <td><b>0.9924</b></td>
+      <td>0.9293</td>
+      <td>0.9223</td>
+      <td>0.9480</td>
+      <td><a href="https://github.com/FiboSeg">GitHub</a></td>
+    </tr>
+    <tr>
+      <td>IGIP</td>
+      <td></td>
+      <td>0.9244</td>
+      <td>0.9750</td>
+      <td><b>0.9289</b></td>
+      <td>0.9427</td>
+      <td><a href="https://github.com/IGIP">GitHub</a></td>
+    </tr>
+    <tr>
+      <td>TeethSeg</td>
+      <td></td>
+      <td>0.9184</td>
+      <td>0.9678</td>
+      <td>0.8538</td>
+      <td>0.9133</td>
+      <td><a href="https://github.com/TeethSeg">GitHub</a></td>
+    </tr>
+    <tr>
+      <td>OS</td>
+      <td></td>
+      <td>0.7845</td>
+      <td>0.9693</td>
+      <td>0.8940</td>
+      <td>0.8826</td>
+      <td><a href="https://github.com/OS">GitHub</a></td>
+    </tr>
+    <tr>
+      <td>Radboud</td>
+      <td></td>
+      <td>0.6242</td>
+      <td>0.8886</td>
+      <td>0.8795</td>
+      <td>0.7974</td>
+      <td><a href="https://github.com/Radboud">GitHub</a></td>
+    </tr>
+  </tbody>
+</table>
+
+
+                <h3 class="title">Citing us</h3>
+    <pre><code>@article{ben2022teeth3ds,
+title={{Teeth3Ds+: An Extended Benchmark for Intra-oral 3D Scans Analysis}},
+author={Ben-Hamadou, Achraf and Neifar, Nour and Rekik, Ahmed and Smaoui, Oussama and Bouzguenda, Firas and Pujades, Sergi and  Boyer, Edmond and Ladroit, Edouard},
+journal={arXiv preprint arXiv:2210.06094},
+year={2022}
+}
+
+@article{ben20233dteethseg,
+title={3DTeethSeg'22: 3D Teeth Scan Segmentation and Labeling Challenge},
+author={Achraf Ben-Hamadou and Oussama Smaoui and Ahmed Rekik and Sergi Pujades and Edmond Boyer and Hoyeon Lim and Minchang Kim and Minkyung Lee and Minyoung Chung and Yeong-Gil Shin and Mathieu Leclercq and Lucia Cevidanes and Juan Carlos Prieto and Shaojie Zhuang and Guangshun Wei and Zhiming Cui and Yuanfeng Zhou and Tudor Dascalu and Bulat Ibragimov and Tae-Hoon Yong and Hong-Gi Ahn and Wan Kim and Jae-Hwan Han and Byungsun Choi and Niels van Nistelrooij and Steven Kempers and Shankeeth Vinayahalingam and Julien Strippoli and Aurélien Thollot and Hugo Setbon and Cyril Trosset and Edouard Ladroit},
+journal={arXiv preprint arXiv:2305.18277},
+year={2023}
+}    </code></pre>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<section class="section" id="3DTeethLandSec">
+    <div class="container is-max-desktop">
+        <h2 class="title is-3">3DTeethLand Challenge MICCAI 2024</h2>
+
+<!--        &lt;!&ndash; Interpolating. &ndash;&gt;-->
+<!--        <h3 class="title is-4">Interpolating states</h3>-->
+<!--        <div class="content has-text-justified">-->
+<!--          <p>-->
+<!--            We can also animate the scene by interpolating the deformation latent codes of two input-->
+<!--            frames. Use the slider here to linearly interpolate between the left frame and the right-->
+<!--            frame.-->
+<!--          </p>-->
+<!--        </div>-->
+<!--        <div class="columns is-vcentered interpolation-panel">-->
+<!--          <div class="column is-3 has-text-centered">-->
+<!--            <img src="./static/images/interpolate_start.jpg"-->
+<!--                 class="interpolation-image"-->
+<!--                 alt="Interpolate start reference image."/>-->
+<!--            <p>Start Frame</p>-->
+<!--          </div>-->
+<!--          <div class="column interpolation-video-column">-->
+<!--            <div id="interpolation-image-wrapper">-->
+<!--              Loading...-->
+<!--            </div>-->
+<!--            <input class="slider is-fullwidth is-large is-info"-->
+<!--                   id="interpolation-slider"-->
+<!--                   step="1" min="0" max="100" value="0" type="range">-->
+<!--          </div>-->
+<!--          <div class="column is-3 has-text-centered">-->
+<!--            <img src="./static/images/interpolate_end.jpg"-->
+<!--                 class="interpolation-image"-->
+<!--                 alt="Interpolation end reference image."/>-->
+<!--            <p class="is-bold">End Frame</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <br/>-->
+<!--        &lt;!&ndash;/ Interpolating. &ndash;&gt;-->
+
+        <img src="./static/images/3Dteethland_banner.jpg"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+  </div>
+
+  <div class="container is-max-desktop">
+    <div class="column is-justify-content-left" >
+      <div class="content">
+        <p>The challenge 3DTeethLand is the second edition of the 3DTeethSeg22 challenge associated with MICCAI 2024. 
+          It is organized by Udini (France) in collaboration with Inria Grenoble Morpheo team (France) and the Digital Research Center of Sfax (Tunisia).</p>
+        <p>In the previous edition of the challenge, known as 3DTeethSeg22 challenge, the focus was on teeth segmentation and labeling from intraoral 3D scans. Building upon this foundation and seeking to enhance our comprehension of intraoral scans, we are thrilled to introduce a more complex task in this challenge: 3D Teeth Landmark Detection.</p>
+        <h3>Main objective</h3>
+          <p>The objective of the 3D Teeth Landmark Detection task is to create algorithms that can automatically identify essential landmarks on individual teeth using 3D intraoral scans.
+            These landmarks play a vital role in orthodontic treatment planning and assessment by providing crucial anatomical references for tooth alignment and positioning.</p>
+        <h3>Data Description</h3>
+          <p>
+            To facilitate accurate analysis and understanding of tooth positioning and alignment, we define
+            specific dental landmarks on each tooth, as illustrated in the figure below.
+          </p>
+
+          <!-- Container for the image and text -->
+          <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px; align-items: center;">
+            
+            <!-- Text Description Section -->
+            <div>
+              <h4>1- Mesial (red) and Distal (green) Points:</h4>
+              <p>
+                These points are located on the proximal surfaces of the tooth. The mesial point is on the side of the tooth closer to the midline of the mouth, while the distal point is on the side farther from the midline. These points are important for determining the alignment and positioning of the tooth in the dental arch.
+              </p>
+            
+              <h4>2- Cusp Point (blue):</h4>
+              <p>
+                The cusp is the pointed or rounded mound on the chewing surface of a tooth. The cusp point is located at the highest point of the cusp. It is significant for understanding the occlusion (bite) relationship between the upper and lower teeth.
+              </p>
+            
+              <h4>3- Inner (yellow) and Outer (cyan) Points:</h4>
+              <p>
+                These points are located at the limits of the tooth, where the tooth meets the gingiva (gum tissue). The inner point is on the inner side of the tooth, closer to the tongue or palate, while the outer point is on the outer side of the tooth, closer to the cheek or lips. These points are important for determining the pose of the tooth, including its orientation.
+              </p>
+            
+              <h4>4- Facial Axis (magenta) Point:</h4>
+              <p>
+                This point is located at the midpoint of the facial surface of each tooth. The facial surface is the surface of the tooth that is visible from the front of the mouth. The facial axis point is important for determining the angulation and inclination of the tooth.
+              </p>
+            </div>
+
+            <!-- Image Section -->
+            <div style="max-width: 100%; text-align: center;">
+              <img src="static/images/dentallandmarks_illustration.jpg" alt="Tooth Points Diagram" style="width:100%; max-width: 500px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+            </div>
+          </div>
+          <p>The landmarks annotated dataset consisting of 340 intraoralscans (IOS). 
+            This dataset is divided into two main groups: 240 scans from the Teeth3DS dataset, used as
+            the training set for the 3DTeethLand Challenge and containing segmentation and labeling annotations,
+            and an additional 100 scans without segmentation or labeling annotations, designated as the hidden
+            private test set.</p>
+          <p>The landmarks annotations are provided in JavaScript Object Notation (JSON) format for each IOS scan in the Teeth3DS dataset.
+            An example of the scanname_arch_kpt.json file format is shown below:
+          </p>
+          <pre><code id="json-code" class="json">{
+    "version":"1.0",
+    "description":"landmarks",
+    "key":"01A6HAN6_lower.obj",  # lower arch of scan named 01A6HAN6, which can be found in Teeth3DS files.
+    "objects":[  # list of landmarks
+    {
+        "key":"uuid_0",  # unique id for the keypoint
+        "class":"Mesial", # the class of the keypoint
+        "coord":[  # xyz coordinate of the keypoint
+            2.3146634105298736,
+            -14.671770076868356,
+            -82.42080180486484
+                  ]
+    },....
+}</code></pre>
+         <h3>Download</h3>
+         The landmark annotation files for the 3DTeeth scans can be downloaded from the following link:
+         url : <a href="https://osf.io/xctdy/">https://osf.io/um96h/</a>
+        <h3>Evaluation metrics</h3>
+        <h5>Mean Average Precision</h5>
+        
+        <p>The Mean Average Precision (mAP) evaluates the accuracy of keypoint localization by assessing both the confidence of predictions and their alignment with ground truth across multiple distance thresholds.
+        It is computed by first generating precision-recall curves at varying confidence score cutoffs, then calculating the area under these curves for each distance threshold and landmark category.
+        The mAP is derived by averaging the AP values across all thresholds for each category. A higher mAP reflects the model's ability to make confident, accurate predictions while minimizing false positives and poorly localized detections, emphasizing the precision aspect of model performance.
+        </p>
+        <h5>Mean Average Recall</h5>
+        <p>Mean Average Recall (mAR) measures the model's ability to detect all ground truth keypoints, providing an assessment of prediction completeness.
+         It is computed as the average recall across various distance thresholds. Recall is calculated at each threshold as the ratio of correctly detected keypoints to the total number of ground truth keypoints, 
+         and the area under the recall curve is determined for each landmark category across all thresholds. The mAR is then derived by averaging the AR values for each category, resulting in a separate mAR value for every landmark category. A higher mAR reflects the model's capacity to detect a significant proportion of true keypoints, independent of prediction confidence, making it a valuable metric for evaluating coverage.
+        </p>
+        <h5>Ranking</h5>
+        <p>To ensure robust rankings, we will employ a point-based ranking method enhanced by bootstrapping. The process begins with the computation of the mAP and mAR metrics for each landmark category. 
+          Teams are then pairwise compared for each metric using the Wilcoxon Signed Rank Test. A team is awarded one point for each comparison where it is deemed statistically superior (p-value < 0.001), resulting in a "total point count" that reflects the number of comparisons won. Bootstrapping is applied by resampling 10% of the data and repeating the pairwise comparison process on the remaining data, generating a "total point count" for each resampling iteration. 
+          This process is repeated 100 times. The final point score for each team is normalized by the total number of comparisons, calculated as 
+          The normalized scores are then aggregated to produce the final ranking, ensuring a statistically robust and fair evaluation of performance.</p>
+         <h3>Leaderboard</h3>
+        <div class="table-container">
+          <table>
+              <thead>
+                  <tr>
+                      <th>Team</th>
+                      <th>Method</th>
+                      <th>Rank Score</th>
+                      <th>AP_cusp</th>
+                      <th>AP_facial</th>
+                      <th>AP_inner_outer</th>
+                      <th>AP_mesial_distal</th>
+                      <th>mAP</th>
+                      <th>AR_cusp</th>
+                      <th>AR_facial</th>
+                      <th>AR_inner_outer</th>
+                      <th>AR_mesial_distal</th>
+                      <th>mAR</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>Radboud</td>
+                      <td></td>
+                      <td>0.9172</td>
+                      <td>0.772</td>
+                      <td>0.768</td>
+                      <td>0.793</td>
+                      <td>0.792</td>
+                      <td>0.785</td>
+                      <td>0.675</td>
+                      <td>0.637</td>
+                      <td>0.661</td>
+                      <td>0.651</td>
+                      <td>0.656</td>
+                  </tr>
+                  <tr>
+                      <td>ChohoTech</td>
+                      <td></td>
+                      <td>0.8325</td>
+                      <td>0.765</td>
+                      <td>0.761</td>
+                      <td>0.78</td>
+                      <td>0.781</td>
+                      <td>0.775</td>
+                      <td>0.627</td>
+                      <td>0.586</td>
+                      <td>0.625</td>
+                      <td>0.672</td>
+                      <td>0.634</td>
+                  </tr>
+                  <tr>
+                      <td>YY-LAB</td>
+                      <td></td>
+                      <td>0.6224</td>
+                      <td>0.684</td>
+                      <td>0.726</td>
+                      <td>0.748</td>
+                      <td>0.705</td>
+                      <td>0.719</td>
+                      <td>0.719</td>
+                      <td>0.569</td>
+                      <td>0.601</td>
+                      <td>0.576</td>
+                      <td>0.579</td>
+                  </tr>
+                  <tr>
+                      <td>YN-LAB</td>
+                      <td></td>
+                      <td>0.3171</td>
+                      <td>0.656</td>
+                      <td>0.667</td>
+                      <td>0.61</td>
+                      <td>0.657</td>
+                      <td>0.643</td>
+                      <td>0.538</td>
+                      <td>0.522</td>
+                      <td>0.511</td>
+                      <td>0.539</td>
+                      <td>0.527</td>
+                  </tr>
+                  <tr>
+                      <td>IGIP-LAB</td>
+                      <td></td>
+                      <td>0.1358</td>
+                      <td>0.636</td>
+                      <td>0.59</td>
+                      <td>0.634</td>
+                      <td>0.523</td>
+                      <td>0.59</td>
+                      <td>0.519</td>
+                      <td>0.445</td>
+                      <td>0.505</td>
+                      <td>0.41</td>
+                      <td>0.466</td>
+                  </tr>
+                  <tr>
+                      <td>CG_sayaka</td>
+                      <td></td>
+                      <td>0.1253</td>
+                      <td>0.574</td>
+                      <td>0.553</td>
+                      <td>0.531</td>
+                      <td>0.529</td>
+                      <td>0.541</td>
+                      <td>0.55</td>
+                      <td>0.476</td>
+                      <td>0.501</td>
+                      <td>0.481</td>
+                      <td>0.498</td>
+                  </tr>
+                  <tr>
+                      <td>3DIMLAND</td>
+                      <td></td>
+                      <td>0.0325</td>
+                      <td>0.594</td>
+                      <td>0.621</td>
+                      <td>0.551</td>
+                      <td>0.575</td>
+                      <td>0.578</td>
+                      <td>0.457</td>
+                      <td>0.459</td>
+                      <td>0.459</td>
+                      <td>0.459</td>
+                      <td>0.438</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/abenhamadou/3DTeethSeg22_challenge" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
