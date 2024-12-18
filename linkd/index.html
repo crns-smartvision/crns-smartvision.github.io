@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="LiNKD">
+  <meta name="keywords" content="LipReading, LR-CAR, LRW, visual speach recognition">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LiNKD</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">LiNKD: Leveraging knowledge distillation for lip reading on limited near-infrared data</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Samar Daou<sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://abenhamadou.github.io">Achraf Ben-Hamadou</a><sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://rekikamed.github.io">Ahmed Rekik</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              Abdelaziz Kallel<sup>1,2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>SMARTS: Laboratory of Signals, systeMs, aRtificial Intelligence and neTworkS,</span>
+            <span class="author-block"><sup>2</sup>Digital Research Centre of Sfax, Tunisia</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+              <!-- arxiv Link. -->
+              <span class="link-block">
+                <a href = "" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- github Link. -->
+<!--              <span class="link-block">-->
+<!--                <a href="https://github.com/crns-smartvision/linkd" class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="fab fa-github"></i>-->
+<!--                  </span>-->
+<!--                  <span>Code</span>-->
+<!--                  </a>-->
+<!--              </span>-->
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://osf.io/3v862" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+                </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/merged_image1_5_ir.png"
+           class="interpolation-image"
+           alt="Interpolate start reference image."/>
+      <img src="./static/images/merged_image1_5_rgb.png"
+           class="interpolation-image"
+           alt="Interpolate start reference image."/>
+      <h2 class="subtitle has-text-centered">
+       Samples from the LR-CAR dataset. The top row shows RGB images and the bottom row displays near-infrared images.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+             In scenarios involving driver-car interaction, effective communication is vital for maintaining safety and operational efficiency. Conventional communication methods, like voice commands and manual inputs, can be impractical and unsafe, especially in noisy or dynamic environments. Lipreading offers a compelling alternative by utilizing visual cues from lip movements and facial expressions. However, existing lipreading techniques typically depend on RGB cameras, which can struggle with the variable lighting conditions found in vehicle interiors, making near-infrared imaging a more suitable option. The scarcity of near-infrared data presents challenges, as merely fine-tuning RGB models is inadequate. To overcome this limitation, we propose a knowledge distillation approach that transfers features from pre-trained RGB models to near-infrared models, thereby enhancing performance with the limited available near-infrared data. Additionally, we introduce LR-CAR, the first dual-modality dataset for driver-car interaction which includes both RGB and near-infrared modalities. Our results indicate that this method significantly boosts lipreading performance, achieving an impressive 26.51% improvement over basic fine-tuning.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+ <!-- Method overview. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method overview</h2>
+
+<!--        &lt;!&ndash; Interpolating. &ndash;&gt;-->
+<!--        <h3 class="title is-4">Input video</h3>-->
+<!--        <div class="columns is-vcentered interpolation-panel">-->
+<!--          <div class="column is-3 has-text-centered">-->
+<!--            <img src="./static/images/interpolate_start.jpg"-->
+<!--                 class="interpolation-image"-->
+<!--                 alt="Interpolate start reference image."/>-->
+<!--            <p>Start Frame</p>-->
+<!--          </div>-->
+<!--          <div class="column interpolation-video-column">-->
+<!--            <div id="interpolation-image-wrapper">-->
+<!--              Loading...-->
+<!--            </div>-->
+<!--            <input class="slider is-fullwidth is-large is-info"-->
+<!--                   id="interpolation-slider"-->
+<!--                   step="1" min="0" max="10" value="0" type="range">-->
+<!--          </div>-->
+<!--          <div class="column is-3 has-text-centered">-->
+<!--            <img src="./static/images/interpolate_end.jpg"-->
+<!--                 class="interpolation-image"-->
+<!--                 alt="Interpolation end reference image."/>-->
+<!--            <p class="is-bold">End Frame</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <br/>-->
+<!--        &lt;!&ndash;/ Interpolating. &ndash;&gt;-->
+
+
+        <div class="content has-text-centered">
+          <img src="./static/images/ewc_short.png">
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Overview of the EWC method across two training phases: In Phase 1, the model is trained on RGB data. Key parameters are identified using the Fisher Information matrix. In Phase 2, the model is trained on near-infrared data. A regularization term is applied to protect critical parameters from Phase 1. This approach allows the model to retain RGB knowledge while adapting to near-infrared input.
+          </p>
+
+        </div>
+        <!--/ Re-rendering. -->
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- LRW-AR dataset. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">LR-CAR Lipreading Dataset</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            Data processing was done via an automated pipeline:
+          </p>
+
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/images/lr-car-pipeline.png">
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            <strong>LR-CAR</strong> dataset was recorded from two different cameras in the same time: <strong>RGB</strong> and <strong>Near-Infrared</strong> camera.
+          </p>
+          <p>
+            <strong>29 speakers</strong> were involved to obtain a global number of 1044 utterances.
+          </p>
+          <p>
+            Each speaker repeated 12 representative car commands three times.
+          </p>
+          </div>
+        <div class="content has-text-centered">
+
+          <table style="border-collapse: separate; width: 50%; border-spacing: 0 10px;">
+        <thead>
+            <tr>
+                <th class="table-cell">ID</th>
+                <th class="table-cell">Commands</th>
+                <th class="table-cell">ID</th>
+                <th class="table-cell">Commands</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="table-cell">1</td>
+                <td class="table-cell">Time to arrival</td>
+                <td class="table-cell">7</td>
+                <td class="table-cell">I need a break</td>
+            </tr>
+            <tr>
+                <td class="table-cell">2</td>
+                <td class="table-cell">Cooler</td>
+                <td class="table-cell">8</td>
+                <td class="table-cell">Take me home</td>
+            </tr>
+            <tr>
+                <td class="table-cell">3</td>
+                <td class="table-cell">Warmer</td>
+                <td class="table-cell">9</td>
+                <td class="table-cell">Hello</td>
+            </tr>
+            <tr>
+                <td class="table-cell">4</td>
+                <td class="table-cell">Mute</td>
+                <td class="table-cell">10</td>
+                <td class="table-cell">Take me to work</td>
+            </tr>
+            <tr>
+                <td class="table-cell">5</td>
+                <td class="table-cell">Weather forecast</td>
+                <td class="table-cell">11</td>
+                <td class="table-cell">Accept call</td>
+            </tr>
+            <tr>
+                <td class="table-cell">6</td>
+                <td class="table-cell">I feel fine</td>
+                <td class="table-cell">12</td>
+                <td class="table-cell">Reject call</td>
+            </tr>
+        </tbody>
+    </table>
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!--<section class="section" id="BibTeX">-->
+<!--  <div class="container is-max-desktop content">-->
+<!--    <h2 class="title">BibTeX</h2>-->
+<!--    <pre><code>-->
+<!--@misc{daou2024crossattention,-->
+<!--      title={Cross-Attention Fusion of Visual and Geometric Features for Large Vocabulary Arabic Lipreading},-->
+<!--      author={Samar Daou and Ahmed Rekik and Achraf Ben-Hamadou and Abdelaziz Kallel},-->
+<!--      year={2024},-->
+<!--      eprint={2402.11520},-->
+<!--      archivePrefix={arXiv},-->
+<!--      primaryClass={cs.CV}-->
+<!--}-->
+<!--    </code></pre>-->
+<!--  </div>-->
+<!--</section>-->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         >
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link"  class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
