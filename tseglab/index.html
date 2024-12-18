@@ -63,20 +63,20 @@
                         <h1 class="title is-1 publication-title">TSegLab: multi-stage 3D dental scan segmentation and labeling</h1>
                                   <div class="is-size-5 publication-authors">
                                     <span class="author-block">
-                                      <a href="rekikamed.github.io">Ahmed Rekik</a><sup>1, 2</sup>,</span>
+                                      <a href="https://rekikamed.github.io">Ahmed Rekik</a><sup>1, 2</sup>,</span>
                                     <span class="author-block">
-                                      <a href="abenhamadou.github.io">Achraf Ben-Hamadou</a><sup>1, 2</sup>,</span>
+                                      <a href="https://abenhamadou.github.io">Achraf Ben-Hamadou</a><sup>1, 2</sup>,</span>
                                     <span class="author-block">
-                                      <a href="">Oussama Smaoui</a><sup>2</sup>,
+                                      Oussama Smaoui<sup>2</sup>,
                                     </span>
                                     <span class="author-block">
-                                      <a href="">Firas Bouzguenda</a><sup>2</sup>,
+                                      Firas Bouzguenda<sup>2</sup>,
                                     </span>
                                     <span class="author-block">
-                                      <a href=""> Sergi Pujades</a><sup>3</sup>,
+                                      <a href="https://morpheo.inrialpes.fr/people/pujades/">Sergi Pujades</a><sup>3</sup>,
                                     </span>
                                     <span class="author-block">
-                                      <a href="">Edmond Boyer</a><sup>3</sup>,
+                                      <a href="https://morpheo.inrialpes.fr/people/Boyer/">Edmond Boyer</a><sup>3</sup>,
                                     </span>
                                   </div>
 
@@ -214,7 +214,7 @@
         <div class="columns is-centered" style="margin-top: 15px">
             <div class="column is-full-width">
                 <h2 class="title is-4">Method Overview</h2>
-                <img src="./static/teaser/overview.png"/>
+                <img src="./static/teaser/overview.jpg"/>
                 <div class="content has-text-justified" style="padding-top: 15px">
                     <p>The proposed segmentation pipeline consists of three main stages. </p>
                      <p>   1- Coarse teeth detection: based on detecting teeth in the rendered three-channel 2D representation of the input scan using mask-RCNN. </p>
@@ -228,171 +228,41 @@
     </div>
     </section>
 
+    <section class="section">
+    <div class="container is-max-desktop">
 
+        <!-- Overview. -->
+        <div class="columns is-centered" style="margin-top: 15px">
+            <div class="column is-full-width">
+                <h2 class="title is-4">Results</h2>
+                <img src="./static/teaser/results.jpg"/>
+                <div class="content has-text-justified" style="padding-top: 15px">
+                     <p> Comparisons with state-of-the-art methods on TLA, TSA, TIR, standard 3D segmentation evaluation metrics (DSC, OA), and running-time T in seconds. </p>
+                </div>
 
+            </div>
+        </div>
 
-
-
-
-
-
-
-
-<!--    <section class="section">-->
-<!--        <div class="container is-max-desktop">-->
-
-<!--            <h3 class="title is-4">Latent Interpolation</h3>-->
-<!--            <div class="content has-text-justified">-->
-<!--                <p>-->
-<!--                    The texture latent space learned by our method produces smoothly-varying valid textures when traversing across the latent space for a fixed shape.-->
-<!--                </p>-->
-<!--            </div>-->
-<!--            <div class="columns is-vcentered" style="margin-top: 10px">-->
-<!--                <div class="column columns nested-columns is-vcentered interpolation-panel">-->
-<!--                    <div class="column is-3 has-text-centered">-->
-<!--                        <img src="./static/latent_interpolation/chair/000.jpg"-->
-<!--                             class="interpolation-image"-->
-<!--                             alt="Interpolate start reference image."/>-->
-<!--                        <p>Start Frame</p>-->
-<!--                    </div>-->
-<!--                    <div class="column interpolation-video-column">-->
-<!--                        <div id="interpolation-image-wrapper-chair">-->
-<!--                          Loading...-->
-<!--                        </div>-->
-<!--                        <input class="slider is-fullwidth is-large is-info"-->
-<!--                               id="interpolation-slider-chair"-->
-<!--                               step="1" min="0" max="100" value="0" type="range">-->
-<!--                    </div>-->
-<!--                    <div class="column is-3 has-text-centered">-->
-<!--                        <img src="./static/latent_interpolation/chair/025.jpg"-->
-<!--                             class="interpolation-image"-->
-<!--                             alt="Interpolation end reference image."/>-->
-<!--                        <p class="is-bold">End Frame</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-<!--                <div class="column columns nested-columns is-vcentered interpolation-panel" style="margin-left: 20px">-->
-<!--                    <div class="column is-3 has-text-centered">-->
-<!--                        <img src="./static/latent_interpolation/car/000.jpg"-->
-<!--                             class="interpolation-image"-->
-<!--                             alt="Interpolate start reference image."/>-->
-<!--                        <p>Start Frame</p>-->
-<!--                    </div>-->
-<!--                    <div class="column interpolation-video-column">-->
-<!--                        <div id="interpolation-image-wrapper-car">-->
-<!--                          Loading...-->
-<!--                        </div>-->
-<!--                        <input class="slider is-fullwidth is-large is-info"-->
-<!--                               id="interpolation-slider-car"-->
-<!--                               step="1" min="0" max="100" value="0" type="range">-->
-<!--                    </div>-->
-<!--                    <div class="column is-3 has-text-centered">-->
-<!--                        <img src="./static/latent_interpolation/car/025.jpg"-->
-<!--                             class="interpolation-image"-->
-<!--                             alt="Interpolation end reference image."/>-->
-<!--                        <p class="is-bold">End Frame</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            &lt;!&ndash; Novel datasets. &ndash;&gt;-->
-<!--            <div class="columns is-centered" style="margin-top: 25px">-->
-<!--                <div class="column is-full-width">-->
-<!--                    <h2 class="title is-4">Style Consistency</h2>-->
-<!--                    <div class="content has-text-justified">-->
-<!--                        <p>-->
-<!--                            The learned latent space is consistent in style across different shapes, i.e. the same code represents a similar style across shapes, and can be used, for example, in style transfer applications.-->
-<!--                        </p>-->
-<!--                    </div>-->
-<!--                    <div class="columns is-centered">-->
-<!--                        <div class="column is-2">-->
-<!--                            <div class="buttons is-centered" style="height: 100%">-->
-<!--                              <button class="button" id="style_button_0" style="background-color: #0a0a0a; color: #d5d5d5">Style 1</button>-->
-<!--                              <button class="button" id="style_button_1" style="background-color: #d3bb90; color: #0a0a0a">Style 2</button>-->
-<!--                              <button class="button" id="style_button_2" style="background-color: #c6d576; color: #0a0a0a">Style 3</button>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="column" style="background-color: #f5f5f5; margin-left: -5px;">-->
-<!--                            <div class="item item-steve render_wrapper_small">-->
-<!--                                <div id="mesh_style_0" class="render_div"></div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="column" style="background-color: #f5f5f5; margin-left: 5px;">-->
-<!--                            <div class="item item-steve render_wrapper_small">-->
-<!--                                <div id="mesh_style_1" class="render_div"></div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="column" style="background-color: #f5f5f5; margin-left: 5px;">-->
-<!--                            <div class="item item-steve render_wrapper_small">-->
-<!--                                <div id="mesh_style_2" class="render_div"></div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="column" style="background-color: #f5f5f5; margin-left: 5px;">-->
-<!--                            <div class="item item-steve render_wrapper_small">-->
-<!--                                <div id="mesh_style_3" class="render_div"></div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-
-<!--                    <div class="content" style="text-align: center">-->
-<!--                        [ Press <b>G</b> to toggle between geometry and <span class="dnerf">Texturified</span> meshes. Press <b>R</b> to reset view. ]-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            &lt;!&ndash;/ Animation. &ndash;&gt;-->
-
-<!--            &lt;!&ndash; Concurrent Work. &ndash;&gt;-->
-<!--            <div class="columns is-centered">-->
-<!--                <div class="column is-full-width">-->
-<!--                    <h2 class="title is-3">Related Links</h2>-->
-
-<!--                    <div class="content has-text-justified">-->
-<!--                        <p>-->
-<!--                            For more work on similar tasks, please check out-->
-<!--                        </p>-->
-<!--                        <p>-->
-<!--                            <a href="https://www.bmvc2021-virtualconference.com/assets/papers/0271.pdf">Learning Texture Generators for 3D Shape-->
-<!--Collections from Internet Photo Sets</a> learns a texture generator for 3D objects from 2D image collections using a common UV parameterization.-->
-<!--                        </p>-->
-
-<!--                        <p>-->
-<!--                            <a href="https://avg.is.mpg.de/publications/oechsle2019iccv">Texture Fields: Learning Texture Representations in Function Space</a>-->
-<!--                            learns a texture generator parameterized as an implicit field.-->
-<!--                        </p>-->
-
-<!--                        <p>-->
-<!--                            <a href="https://arxiv.org/abs/2006.14660">SPSG: Self-Supervised Photometric Scene Generation from RGB-D Scans</a> tackles scene completion both in terms of geometry and texture using a 3D grid parameterization.-->
-<!--                        </p>-->
-
-<!--                        <p>-->
-<!--                            <a href="https://threedle.github.io/text2mesh/">Text2Mesh: Text-Driven Neural Stylization for Meshes</a> optimizes color and geometric details over a variety of source meshes, driven by a target text prompt.-->
-<!--                        </p>-->
-
-<!--                        <p>-->
-<!--                            <a href="https://arxiv.org/abs/1812.00020">TextureNet: Consistent Local Parametrizations for Learning from High-Resolution Signals on Meshes</a>, our motivation for using 4-RoSy parameterization, introduces a neural network architecture designed to extract features from high-resolution signals associated with 3D surface meshes, and show its application on point cloud segmentation.-->
-<!--                        </p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            &lt;!&ndash;/ Concurrent Work. &ndash;&gt;-->
-
-<!--        </div>-->
-<!--    </section>-->
+    </div>
+    </section>
 
     <section class="section" id="BibTeX">
         <div class="container is-max-desktop content">
-            <h2 class="title">BibTeX</h2>
-            <pre>
-<code>
-  @misc{achraf2022Teeth3DS,
-      title={{Teeth3DS}: a benchmark for teeth segmentation and labeling from intra-oral {3D} scans},
-      author={Achraf Ben-Hamadou and Oussama Smaoui and Houda Chaabouni-Chouayakh and Ahmed Rekik and Sergi Pujades and Edmond Boyer and Julien Strippoli and Aurélien Thollot and Hugo Setbon and Cyril Trosset and Edouard Ladroit},
-      year={2022},
-      eprint={2210.06094},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+
+        <h3 class="title">Citing us</h3>
+    <pre><code>@article{rekiktseglab2024,
+    title={{TSegLab: multi-stage 3D dental scan segmentation and labeling}},
+    author={Rekik, Ahmed and Ben-Hamadou, Achraf and Smaoui, Oussama and Bouzguenda, Firas and Pujades, Sergi and  Boyer, Edmond},
+    journal={Elsevier Computers in Biology and Medicine},
+    year={2024}
 }
-</code></pre>
-        </div>
+
+@article{ben2022teeth3ds,
+    title={{Teeth3Ds+: An Extended Benchmark for Intra-oral 3D Scans Analysis}},
+    author={Ben-Hamadou, Achraf and Neifar, Nour and Rekik, Ahmed and Smaoui, Oussama and Bouzguenda, Firas and Pujades, Sergi and  Boyer, Edmond and Ladroit, Edouard},
+    journal={arXiv preprint arXiv:2210.06094},
+    year={2022}
+}</code></pre></div>
     </section>
 
 
