@@ -153,17 +153,14 @@
                     <h2 class="title is-3">Abstract</h2>
                     <div class="content has-text-justified">
                         <p>
-                        In modern dentistry, computer-aided design (CAD) tools are becoming more popular due to their high level of accuracy in dental treatment planning.
-                        In particular, advanced intraoral scanners are now widely utilized in CAD systems because they produce accurate 3D surface models of the intraoral cavity.
-                        This advancement has liberated dentists from tedious and time-consuming tasks.
-                        With CAD, dentists can predict and optimize orthodontic and/or restorative treatment outcomes through convenient simulations involving teeth extraction, movement, deletion, and rearrangement.
-                        The precise and reliable automatic segmentation and labeling of teeth are crucial components in CAD systems.
-                        In this article, we propose a novel deep learning approach for 3D teeth scan segmentation and labeling.
-                        Our approach is divided into three main tasks: teeth localization, segmentation, and labeling.
-                        Firstly, we leverage recent advances in 2D object detection based on convolutional neural networks (CNNs) to achieve robust localization of visible teeth in the scan.
-                        The detected teeth candidates are then fed into a semantic segmentation network for fine teeth crown segmentation.
-                        To address the teeth labeling task, we design a novel graph neural network that models both the 3D shape appearance and spatial distribution of teeth in the jaw.
-                        We evaluate our method on the Teeth3DS dataset, which comprises 1800 intraoral 3D scans. Experimental results demonstrate that our method outperforms state-of-the-art techniques.
+                         This study introduces a novel deep learning approach for 3D teeth scan segmentation and labeling,
+                            designed to enhance accuracy in computer-aided design (CAD) systems. Our method is organized into three key stages: coarse localization, fine teeth segmentation, and labeling.
+                            In the teeth localization stage, we employ a Mask-RCNN model to detect teeth in a rendered three-channel 2D representation of the input scan.
+                            For fine teeth segmentation, each detected tooth mesh is isomorphically mapped to a 2D harmonic parameter space and segmented with a Mask-RCNN model for precise crown delineation.
+                            Finally, for labeling, we propose a graph neural network that captures both the 3D shape and spatial distribution of the teeth, along with a new data augmentation technique to simulate missing teeth and teeth position variation during training.
+                            The method is evaluated using three key metrics: Teeth Localization Accuracy (TLA), Teeth Segmentation Accuracy (TSA), and Teeth Identification Rate (TIR).
+                            We tested our approach on the Teeth3DS dataset, consisting of 1800 intraoral 3D scans, and achieved a TLA of 98.45%, TSA of 98.17%, and TIR of 97.61%, outperforming existing state-of-the-art techniques.
+                            These results suggest that our approach significantly enhances the precision and reliability of automatic teeth segmentation and labeling in dental CAD applications.
                       </p>
                     </div>
                 </div>
