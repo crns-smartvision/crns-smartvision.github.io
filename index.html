@@ -1,10 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <style>
+        body { margin: 0; background-color: #1a1a1b; overflow: hidden; }
+        canvas { display: block; }
+    </style>
 </head>
 <body>
+    <canvas id="circuitCanvas"></canvas>
 
+    <script>
+        const canvas = document.getElementById('circuitCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Refined Palette
+        const COLORS = {
+            bgInner: '#1a1a1b',   // Lighter center gray
+            bgOuter: '#0d0d0d',   // Darker edge gray
+            node: '#f4f1ea',      // Creamy nodes
+            accent: '#e6f2f7',    // Pale blue accent squares
+            line: 'rgba(244, 241, 234, 0.15)' 
+        };
+
+        let particles = [];
+        const particleCount = 50;
+
+        function init() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            particles = [];
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Node());
+            }
+        }
+
+        class Node {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                // Slower, more organic movement
+                this.speedX = (Math.random() - 0.5) * 0.3;
+                this.speedY = (Math.random() - 0.5) * 0.3;
+                this.size = Math.random() * 2 + 1;
+                this.isSquare = Math.random() > 0.85;
+                this.hasRing = Math.random() > 0.7;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+
+            draw() {
+                ctx.fillStyle = this.isSquare ? COLORS.accent : COLORS.node;
+                if (this.isSquare) {
+                    ctx.globalAlpha = 0.8;
+                    ctx.fillRect(this.x - 4, this.y - 4, 9, 9);
+                    ctx.globalAlpha = 1;
+                } else {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                    if (this.hasRing) {
+                        ctx.strokeStyle = COLORS.node;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.size + 5, 0, Math.PI * 2);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function drawBackground() {
+            // Creates a radial "vignette" shader effect
+            const gradient = ctx.createRadialGradient(
+                canvas.width/2, canvas.height/2, 0, 
+                canvas.width/2, canvas.height/2, canvas.width/1.2
+            );
+            gradient.addColorStop(0, COLORS.bgInner);
+            gradient.addColorStop(1, COLORS.bgOuter);
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function drawCircuitLines() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 160) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(244, 241, 234, ${0.12 * (1 - distance/160)})`;
+                        ctx.lineWidth = 0.8;
+                        // Manhattan routing
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[i].x, particles[j].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            drawBackground();
+            drawCircuitLines();
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', init);
+        init();
+        animate();
+    </script>
 </body>
 </html>
