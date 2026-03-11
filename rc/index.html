@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRNS SmartVision Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Space+Grotesk:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="static/css/site.css" />
+</head>
+
+<body>
+    <div class="side-panels" aria-hidden="true">
+        <div class="side-panel side-panel--left">
+            <canvas id="circuitCanvasLeft"></canvas>
+        </div>
+        <div class="side-panel side-panel--right">
+            <canvas id="circuitCanvasRight"></canvas>
+        </div>
+    </div>
+
+    <div class="page-frame">
+        <header class="site-header">
+            <div class="container nav">
+                <div class="brand">
+                    <a href="https://crns.rnrt.tn/" target="_blank" rel="noopener noreferrer">
+                        <img src="static/images/crns.png" alt="CRNS Logo" class="brand-logo" />
+                    </a>
+                    <span class="brand-sep" aria-hidden="true"></span>
+                    <a href="https://smarts.tn/smartlab/public/" target="_blank" rel="noopener noreferrer">
+                        <img src="static/images/smarts.png" alt="SM@RTS LAB Logo" class="brand-logo brand-logo--smarts" />
+                    </a>
+                </div>
+                <nav class="nav-links">
+                    <a href="#team">Team</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#partners">Partners</a>
+                </nav>
+            </div>
+        </header>
+
+    <main id="top">
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="reveal">
+                    <h1 class="hero-title">Research that brings vision to life.</h1>
+                    <p class="hero-text">
+                        We develop cutting-edge computer vision systems — from 3D medical
+                        imaging to audio-visual synchronization — bridging fundamental
+                        research and real-world impact.
+                    </p>
+                    
+                </div>
+               
+            </div>
+        </section>
+
+       
+
+        <section id="team">
+            <div class="container">
+                <h2 class="section-title">Team</h2>
+                <p class="section-lead">
+                    Our team brings together researchers, engineers and students
+                    driven by a shared passion for innovation.
+                </p>
+                <div class="team-grid">
+                    <article class="member-card reveal">
+                        <div class="member-photo-wrap">
+
+                            <img src="static/images/achraf.svg" alt="Achraf" class="member-photo" />
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name"><a href="https://abenhamadou.github.io/" target="_blank" rel="noopener">Pr. Achraf BEN HAMADOU</a></h4>
+                            <span class="member-role">Researcher</span>
+                            <p class="member-bio">Computer vision, 3D segmentation, deep learning.</p>
+                        </div>
+                    </article>
+                    <article class="member-card reveal">
+                        <div class="member-photo-wrap">
+                            <img src="static/images/ahmed.svg" alt="Ahmed" class="member-photo" />
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name"><a href="https://rekikamed.github.io/" target="_blank" rel="noopener">Pr. Ahmed REKIK</a></h4>
+                            <span class="member-role">Researcher</span>
+                            <p class="member-bio">Medical data analysis, healthcare vision systems.</p>
+                        </div>
+                    </article>
+                    <article class="member-card reveal">
+                        <div class="member-photo-wrap">
+                            <img src="static/images/oussema.svg" alt="Oussema" class="member-photo" />
+                        </div>
+                        <div class="member-info">
+                            
+                            <h4 class="member-name"><a href="#" target="_blank" rel="noopener">M. Oussama SMAOUI</a></h4>
+                            <span class="member-role">Engineer</span>
+                            <p class="member-bio">ML pipelines, deployment, and open-source tooling.</p>
+                        </div>
+                    </article>
+                    <article class="member-card reveal">
+                        <div class="member-photo-wrap">
+                            <img src="static/images/ons.svg" alt="Ons" class="member-photo" />
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name"><a href="#" target="_blank" rel="noopener">Ms. Ons ABIDA</a></h4>
+                            <span class="member-role">Engineer</span>
+                            <p class="member-bio">Face recognition, audio-visual alignment.</p>
+                        </div>
+                    </article>
+                    <article class="member-card reveal">
+                        <div class="member-photo-wrap">
+                            <img src="static/images/manel.svg" alt="Manel" class="member-photo" />
+
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name"><a href="#" target="_blank" rel="noopener">Ms. Manel FARHAT</a></h4>
+                            <span class="member-role">PhD Candidate</span>
+                            <p class="member-bio">Medical image segmentation and analysis.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <p class="section-lead">
+                    The projects below are publicly available on our GitHub repository.
+                </p>
+                <div class="project-grid">
+                    <article class="card reveal project-card project-card--linkd">
+                        <span class="badge">Audio-Visual Sync</span>
+                        <h4>LINKD</h4>
+                        <p>Audio-visual synchronization and landmark detection.</p>
+                        <a class="project-link" href="https://crns-smartvision.github.io/linkd/" target="_blank"
+                            rel="noopener">Open project</a>
+                    </article>
+                    <article class="card reveal project-card project-card--teeth3ds">
+                        <span class="badge">Teeth 3D</span>
+                        <h4>Teeth3DS</h4>
+                        <p>3D dental segmentation and morphological analysis.</p>
+                        <a class="project-link" href="https://crns-smartvision.github.io/teeth3ds/" target="_blank"
+                            rel="noopener">Open project</a>
+                    </article>
+                    <article class="card reveal project-card project-card--lrwar">
+                        <span class="badge">Lip Reading</span>
+                        <h4>LRWAR</h4>
+                        <p>Robust lip reading for speech recognition.</p>
+                        <a class="project-link" href="https://crns-smartvision.github.io/lrwar/" target="_blank"
+                            rel="noopener">Open project</a>
+                    </article>
+                    <article class="card reveal project-card project-card--iosr">
+                        <span class="badge">Imaging</span>
+                        <h4>IOSR</h4>
+                        <p>Multi-modality segmentation and reconstruction tools.</p>
+                        <a class="project-link" href="https://crns-smartvision.github.io/iosr/" target="_blank"
+                            rel="noopener">Open project</a>
+                    </article>
+                    <article class="card reveal project-card project-card--tseglab">
+                        <span class="badge">3D Lab</span>
+                        <h4>TSEGLAB</h4>
+                        <p>3D object segmentation and real-time interactions.</p>
+                        <a class="project-link" href="https://crns-smartvision.github.io/tseglab/" target="_blank"
+                            rel="noopener">Open project</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="partners">
+            <div class="container">
+                <h2 class="section-title">Partners</h2>
+                <p class="section-lead">
+                    Academic and industrial collaborations to accelerate research.
+                </p>
+            </div>
+            <div class="partners-track-wrap">
+                <div class="partners-track">
+                    <!-- set 1 -->
+                    <div class="partners-set">
+                        <div class="partner-logo-card"><img src="static/partenaires/crns.png" alt="CRNS" /></div>
+                        <div class="partner-logo-card"><img src="static/partenaires/ai4all.png" alt="Ai4ALL" /></div>
+                        <div class="partner-logo-card"><img src="static/partenaires/bioteck.png" alt="Biotech Dental" /></div>
+                        <div class="partner-logo-card"><img src="static/partenaires/diota.png" alt="Diota" /></div>
+                        <div class="partner-logo-card"><img src="static/partenaires/udini.png" alt="Udini" /></div>
+                        <div class="partner-logo-card"><img src="static/partenaires/grenoble.png" alt="Grenoble Alpes University" /></div>
+                        <div class="partner-logo-card"><img src="static/partenaires/VALEO.png" alt="Valeo" /></div>
+                        <div class="partner-logo-card"><img src="static/partenaires/inria.png" alt="Inria" /></div>
+                        <div class="partner-logo-card"><img src="static/partenaires/univsfax.png" alt="University of Sfax" /></div>
+                    </div>
+                    <!-- set 2 (duplicate for seamless loop) -->
+                    <div class="partners-set" aria-hidden="true">
+                        <div class="partner-logo-card"><img src="static/partenaires/crns.png" alt="CRNS" /></div>
+                        <div class="partner-logo-card"><img src="static/partenaires/ai4all.png" alt="Ai4ALL" /></div>
+                        <div class="partner-logo-card"><img src="static/partenaires/bioteck.png" alt="Biotech Dental" /></div>
+                        <div class="partner-logo-card"><img src="static/partenaires/diota.png" alt="Diota" /></div>
+                        <div class="partner-logo-card"><img src="static/partenaires/udini.png" alt="Udini" /></div>
+                        <div class="partner-logo-card"><img src="static/partenaires/grenoble.png" alt="Grenoble Alpes University" /></div>
+                        <div class="partner-logo-card"><img src="static/partenaires/VALEO.png" alt="Valeo" /></div>
+                        <div class="partner-logo-card"><img src="static/partenaires/inria.png" alt="Inria" /></div>
+                        <div class="partner-logo-card"><img src="static/partenaires/univsfax.png" alt="University of Sfax" /></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-banner">
+                    <div class="footer-deco" aria-hidden="true">
+                        <img src="static/images/points.svg" alt="" />
+                    </div>
+                    <h3 class="footer-title">Innovation-Driven Scientific Research Excellence</h3>
+                    <p class="footer-subtitle">CRNS SmartVision Lab - 2026</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="static/js/circuit-bg.js"></script>
+    <script src="static/js/project-tilt.js"></script>
+</body>
+
+</html>
