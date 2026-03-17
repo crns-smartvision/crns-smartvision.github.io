@@ -11,12 +11,16 @@
         bgOuter: '#ffffff',
         node: '#6a6a6a',
         tiles: [
-            'rgba(244, 130, 60, 0.75)',
-            'rgba(80, 150, 220, 0.70)',
-            'rgba(240, 200, 60, 0.75)',
-            'rgba(220, 100, 160, 0.45)',
+            'rgba(244, 130, 60, 0.28)',
+            'rgba(80, 150, 220, 0.24)',
+            'rgba(240, 200, 60, 0.26)',
+            'rgba(220, 100, 160, 0.18)',
         ]
     };
+
+    const MOTION_FACTOR = 0.2;
+    const TILE_SIZE = 14;
+    const TILE_HALF = TILE_SIZE / 2;
 
     function createCircuitInstance(canvas) {
         const ctx = canvas.getContext('2d');
@@ -38,8 +42,8 @@
                     this.x = Math.random() * state.width;
                     this.y = Math.random() * state.height;
                 }
-                this.speedX = (Math.random() - 0.5) * 0.3;
-                this.speedY = (Math.random() - 0.5) * 0.3;
+                this.speedX = (Math.random() - 0.5) * MOTION_FACTOR;
+                this.speedY = (Math.random() - 0.5) * MOTION_FACTOR;
                 this.size = Math.random() * 2 + 1;
                 this.isSquare = Math.random() > 0.82;
                 this.tileColor = COLORS.tiles[Math.floor(Math.random() * COLORS.tiles.length)];
@@ -59,10 +63,10 @@
             draw() {
                 if (this.isSquare) {
                     ctx.fillStyle = this.tileColor;
-                    ctx.fillRect(this.x - 5, this.y - 5, 11, 11);
-                    ctx.strokeStyle = 'rgba(100,100,100,0.25)';
+                    ctx.fillRect(this.x - TILE_HALF, this.y - TILE_HALF, TILE_SIZE, TILE_SIZE);
+                    ctx.strokeStyle = 'rgba(100,100,100,0.16)';
                     ctx.lineWidth = 0.8;
-                    ctx.strokeRect(this.x - 5, this.y - 5, 11, 11);
+                    ctx.strokeRect(this.x - TILE_HALF, this.y - TILE_HALF, TILE_SIZE, TILE_SIZE);
                 } else {
                     ctx.fillStyle = COLORS.node;
                     ctx.beginPath();
