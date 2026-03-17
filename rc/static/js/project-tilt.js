@@ -60,3 +60,107 @@
     card.addEventListener('pointerleave', reset, { passive: true });
   }
 })();
+
+(() => {
+  const button = document.querySelector('.back-to-top');
+  if (!button) return;
+
+  const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+  const SHOW_AFTER_PX = 50;
+
+  const update = () => {
+    button.classList.toggle('is-visible', window.scrollY >= SHOW_AFTER_PX);
+  };
+
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+
+  button.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (prefersReducedMotion) {
+      window.scrollTo(0, 0);
+      return;
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+(() => {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  const toEmail = 'achraf.benhamadou@crns.rnrt.tn';
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const name = (form.querySelector('[name="name"]')?.value || '').trim();
+    const email = (form.querySelector('[name="email"]')?.value || '').trim();
+    const message = (form.querySelector('[name="message"]')?.value || '').trim();
+
+    if (!name || !email || !message) {
+      form.reportValidity?.();
+      return;
+    }
+
+    const subject = `SmartVision website contact — ${name}`;
+    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n`;
+
+    const mailto = `mailto:${encodeURIComponent(toEmail)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+  });
+})();
+
+(() => {
+  const toggleButton = document.getElementById('togglePublications');
+  const extraPublications = document.getElementById('publicationsExtra');
+  const primaryPublications = document.getElementById('publicationsPrimary');
+
+  if (!toggleButton || !extraPublications || !primaryPublications) return;
+
+  const sortAndDistributePublications = () => {
+    const allCards = Array.from(document.querySelectorAll('#publications .publication-card'));
+    if (allCards.length === 0) return;
+
+    const parseYear = (card) => {
+      const yearText = card.querySelector('.publication-year')?.textContent?.trim() || '';
+      const year = Number.parseInt(yearText, 10);
+      return Number.isFinite(year) ? year : -1;
+    };
+
+    allCards.sort((a, b) => parseYear(b) - parseYear(a));
+
+    primaryPublications.replaceChildren();
+    extraPublications.replaceChildren();
+
+    allCards.forEach((card, index) => {
+      if (index < 6) {
+        primaryPublications.appendChild(card);
+      } else {
+        extraPublications.appendChild(card);
+      }
+    });
+  };
+
+  sortAndDistributePublications();
+
+  const openLabel = 'Hide selected papers';
+  const closedLabel = 'View full selected papers';
+
+  toggleButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    const isHidden = extraPublications.hasAttribute('hidden');
+
+    if (isHidden) {
+      extraPublications.removeAttribute('hidden');
+      toggleButton.textContent = openLabel;
+      toggleButton.setAttribute('aria-expanded', 'true');
+    } else {
+      extraPublications.setAttribute('hidden', '');
+      toggleButton.textContent = closedLabel;
+      toggleButton.setAttribute('aria-expanded', 'false');
+    }
+
+    document.getElementById('publications')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+})();
