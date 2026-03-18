@@ -3,7 +3,8 @@
   if (!list) return;
 
   const buttons = Array.from(document.querySelectorAll('.filter-button'));
-  const entries = Array.from(list.querySelectorAll('.project-entry'));
+  const entries = Array.from(list.querySelectorAll('.project-card'));
+  const emptyMessage = document.getElementById('projectsEmpty');
 
   const setActive = (target) => {
     buttons.forEach((button) => {
@@ -14,11 +15,18 @@
   };
 
   const applyFilter = (filter) => {
+    let visibleCount = 0;
     entries.forEach((entry) => {
       const status = entry.dataset.status || 'completed';
       const show = filter === 'all' || status === filter;
       entry.style.display = show ? '' : 'none';
+      if (show) visibleCount += 1;
     });
+
+    if (emptyMessage) {
+      const showEmpty = filter === 'active' && visibleCount === 0;
+      emptyMessage.hidden = !showEmpty;
+    }
   };
 
   buttons.forEach((button) => {

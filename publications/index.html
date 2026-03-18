@@ -4,12 +4,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Publications | CRNS SmartVision Team / CRNS / SmartLabes</title>
+    <title>Publications | CRNS SmartVision Team / CRNS / SmartsLabs</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Space+Grotesk:wght@400;500;600&display=swap"
         rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
     <link rel="stylesheet" href="../static/css/site.css" />
 </head>
 
@@ -36,7 +38,9 @@
                             class="brand-logo brand-logo--smarts" />
                     </a>
                 </div>
+                <div class="nav-title">SmartVision Team</div>
                 <nav class="nav-links">
+                    <a href="../index.html">Home</a>
                     <a href="../index.html#team">Team</a>
                     <a href="../projects/index.html">Projects</a>
                     <a href="./index.html" aria-current="page">Publications</a>
@@ -46,24 +50,18 @@
         </header>
 
         <main id="top">
-            <section class="hero">
+            <section class="hero hero--compact">
                 <div class="container hero-grid">
                     <div class="reveal">
                         <h1 class="hero-title">Publications</h1>
-                        <p class="hero-text">
-                            Selected publication list, highlighting recent work in medical imaging, lip reading, and 3D
-                            vision.
-                        </p>
+                      
                     </div>
                 </div>
             </section>
 
             <section class="publications-page">
                 <div class="container">
-                    <h2 class="section-title">Selected papers</h2>
-                    <p class="section-lead">A curated list of recent and foundational publications from the SmartVision
-                        team.</p>
-
+                   
                     <div class="publications-list">
                         <article class="publication-row reveal">
                             <div class="publication-thumb">
@@ -77,14 +75,11 @@
                                 </div>
                                 <h4>Deep Generative Models for Physiological Signals: A Systematic Literature Review
                                 </h4>
-                                <p class="publication-authors">Nour Neifar, Afef Mdhaffar, Achraf Ben-Hamadou, Mohamed
+                                <p class="publication-authors"><a href="https://neifarnour.github.io/" target="_blank" rel="noopener noreferrer">Nour Neifar</a>, Afef Mdhaffar, <a href="https://abenhamadou.github.io/" target="_blank" rel="noopener noreferrer">Achraf Ben-Hamadou</a>, Mohamed
                                     Jmaiel</p>
                                 <div class="publication-actions">
                                     <a class="project-link" href="https://arxiv.org/pdf/2307.06162" target="_blank" rel="noopener noreferrer" aria-label="PDF" title="PDF">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                                            <path fill="currentColor" d="M6 2h8l4 4v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1.5V7h3.5L13 3.5Z"/>
-                                            <path fill="currentColor" d="M7 13h10v2H7v-2Zm0 4h7v2H7v-2Zm0-8h10v2H7V9Z"/>
-                                        </svg>
+                                        <span class="icon"><i class="fas fa-file-pdf"></i></span>
                                     </a>
                                 </div>
                             </div>
@@ -101,24 +96,20 @@
                                     <span class="publication-venue">Computers in Biology and Medicine</span>
                                 </div>
                                 <h4>TSegLab: Multi-stage 3D dental scan segmentation and labeling</h4>
-                                <p class="publication-authors">Ahmed Rekik, Achraf Ben-Hamadou, Oussama Smaoui, Firas
-                                    Bouzguenda, Sergi Pujades, Edmond Boyer</p>
+                                <p class="publication-authors"><a href="https://rekikamed.github.io/" target="_blank" rel="noopener noreferrer">Ahmed Rekik</a>, <a href="https://abenhamadou.github.io/" target="_blank" rel="noopener noreferrer">Achraf Ben-Hamadou</a>, Oussama Smaoui, Firas
+                                    Bouzguenda, <a href="https://morpheo.inrialpes.fr/people/pujades/" target="_blank" rel="noopener noreferrer">Sergi Pujades</a>, <a href="https://morpheo.inrialpes.fr/people/Boyer/" target="_blank" rel="noopener noreferrer">Edmond Boyer</a></p>
                                 <div class="publication-actions">
-                                    <a class="project-link" href="../../tseglab/index.html" aria-label="Project home" title="Project home">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                                            <path fill="currentColor" d="M12 3.5 3 11.2a1 1 0 0 0 1.3 1.5l.7-.6V20a1 1 0 0 0 1 1h4.5a.5.5 0 0 0 .5-.5v-5h2v5a.5.5 0 0 0 .5.5H18a1 1 0 0 0 1-1v-7.9l.7.6a1 1 0 1 0 1.3-1.5L12 3.5Z"/>
-                                        </svg>
+                                    <a class="project-link" href="../tseglab/index.html" target="_blank" aria-label="Project home" title="Project home">
+                                        <span class="icon"><i class="fas fa-home"></i></span>
+                                    </a>
+                                    <a class="project-link" href="https://seglab.udini.ai/login" target="_blank" rel="noopener noreferrer" aria-label="Demo" title="Demo">
+                                        <span class="icon"><i class="fas fa-cogs"></i></span>
                                     </a>
                                     <a class="project-link" href="https://www.sciencedirect.com/science/article/abs/pii/S0010482524016202" target="_blank" rel="noopener noreferrer" aria-label="Journal PDF" title="Journal PDF">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                                            <path fill="currentColor" d="M6 2h8l4 4v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1.5V7h3.5L13 3.5Z"/>
-                                            <path fill="currentColor" d="M7 13h10v2H7v-2Zm0 4h7v2H7v-2Zm0-8h10v2H7V9Z"/>
-                                        </svg>
+                                        <span class="icon"><i class="fas fa-file-pdf"></i></span>
                                     </a>
                                     <a class="project-link" href="https://osf.io/xctdy" target="_blank" rel="noopener noreferrer" aria-label="Dataset" title="Dataset">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                                            <path fill="currentColor" d="M12 2C7.6 2 4 3.8 4 6v12c0 2.2 3.6 4 8 4s8-1.8 8-4V6c0-2.2-3.6-4-8-4Zm0 2c3.9 0 6 .9 6 2s-2.1 2-6 2-6-.9-6-2 2.1-2 6-2Zm0 6c3 0 5.4-.6 6-1.6V10c0 1.1-2.6 2-6 2s-6-.9-6-2V8.4c.6 1 3 1.6 6 1.6Zm0 6c3 0 5.4-.6 6-1.6V16c0 1.1-2.6 2-6 2s-6-.9-6-2v-1.6c.6 1 3 1.6 6 1.6Z"/>
-                                        </svg>
+                                        <span class="icon"><i class="fas fa-database"></i></span>
                                     </a>
                                 </div>
                             </div>
@@ -136,29 +127,20 @@
                                 </div>
                                 <h4>LRW-AR: Cross-Attention Fusion of Visual and Geometric Features for Large Vocabulary
                                     Arabic Lipreading</h4>
-                                <p class="publication-authors">Samar Daou, Achraf Ben-Hamadou, Ahmed Rekik, Abdelaziz
+                                <p class="publication-authors">Samar Daou, <a href="https://abenhamadou.github.io/" target="_blank" rel="noopener noreferrer">Achraf Ben-Hamadou</a>, <a href="https://rekikamed.github.io/" target="_blank" rel="noopener noreferrer">Ahmed Rekik</a>, Abdelaziz
                                     Kallel</p>
                                 <div class="publication-actions">
                                     <a class="project-link" href="https://crns-smartvision.github.io/lrwar/" target="_blank" rel="noopener noreferrer" aria-label="Project home" title="Project home">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                                            <path fill="currentColor" d="M12 3.5 3 11.2a1 1 0 0 0 1.3 1.5l.7-.6V20a1 1 0 0 0 1 1h4.5a.5.5 0 0 0 .5-.5v-5h2v5a.5.5 0 0 0 .5.5H18a1 1 0 0 0 1-1v-7.9l.7.6a1 1 0 1 0 1.3-1.5L12 3.5Z"/>
-                                        </svg>
+                                        <span class="icon"><i class="fas fa-home"></i></span>
                                     </a>
                                     <a class="project-link" href="https://arxiv.org/abs/2402.11520" target="_blank" rel="noopener noreferrer" aria-label="PDF" title="PDF">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                                            <path fill="currentColor" d="M6 2h8l4 4v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1.5V7h3.5L13 3.5Z"/>
-                                            <path fill="currentColor" d="M7 13h10v2H7v-2Zm0 4h7v2H7v-2Zm0-8h10v2H7V9Z"/>
-                                        </svg>
+                                        <span class="icon"><i class="fas fa-file-pdf"></i></span>
                                     </a>
                                     <a class="project-link" href="https://osf.io/rz49x" target="_blank" rel="noopener noreferrer" aria-label="Dataset" title="Dataset">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                                            <path fill="currentColor" d="M12 2C7.6 2 4 3.8 4 6v12c0 2.2 3.6 4 8 4s8-1.8 8-4V6c0-2.2-3.6-4-8-4Zm0 2c3.9 0 6 .9 6 2s-2.1 2-6 2-6-.9-6-2 2.1-2 6-2Zm0 6c3 0 5.4-.6 6-1.6V10c0 1.1-2.6 2-6 2s-6-.9-6-2V8.4c.6 1 3 1.6 6 1.6Zm0 6c3 0 5.4-.6 6-1.6V16c0 1.1-2.6 2-6 2s-6-.9-6-2v-1.6c.6 1 3 1.6 6 1.6Z"/>
-                                        </svg>
+                                        <span class="icon"><i class="fas fa-database"></i></span>
                                     </a>
                                     <a class="project-link" href="https://github.com/crns-smartvision/lrwar" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                                            <path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.69c-2.78.61-3.37-1.19-3.37-1.19-.46-1.17-1.12-1.48-1.12-1.48-.92-.63.07-.62.07-.62 1.02.07 1.55 1.05 1.55 1.05.9 1.55 2.36 1.1 2.94.84.09-.66.35-1.1.64-1.36-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.85-2.34 4.7-4.57 4.95.36.31.69.92.69 1.86v2.76c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/>
-                                        </svg>
+                                        <span class="icon"><i class="fab fa-github"></i></span>
                                     </a>
                                 </div>
                             </div>
@@ -178,20 +160,13 @@
                                 <p class="publication-authors">Jianning Li et al.</p>
                                 <div class="publication-actions">
                                     <a class="project-link" href="https://medshapenet.ikim.nrw/" target="_blank" rel="noopener noreferrer" aria-label="Project home" title="Project home">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                                            <path fill="currentColor" d="M12 3.5 3 11.2a1 1 0 0 0 1.3 1.5l.7-.6V20a1 1 0 0 0 1 1h4.5a.5.5 0 0 0 .5-.5v-5h2v5a.5.5 0 0 0 .5.5H18a1 1 0 0 0 1-1v-7.9l.7.6a1 1 0 1 0 1.3-1.5L12 3.5Z"/>
-                                        </svg>
+                                        <span class="icon"><i class="fas fa-home"></i></span>
                                     </a>
                                     <a class="project-link" href="https://arxiv.org/pdf/2308.16139" target="_blank" rel="noopener noreferrer" aria-label="PDF" title="PDF">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                                            <path fill="currentColor" d="M6 2h8l4 4v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1.5V7h3.5L13 3.5Z"/>
-                                            <path fill="currentColor" d="M7 13h10v2H7v-2Zm0 4h7v2H7v-2Zm0-8h10v2H7V9Z"/>
-                                        </svg>
+                                        <span class="icon"><i class="fas fa-file-pdf"></i></span>
                                     </a>
                                     <a class="project-link" href="https://github.com/GLARKI/MedShapeNet2.0" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                                            <path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.69c-2.78.61-3.37-1.19-3.37-1.19-.46-1.17-1.12-1.48-1.12-1.48-.92-.63.07-.62.07-.62 1.02.07 1.55 1.05 1.55 1.05.9 1.55 2.36 1.1 2.94.84.09-.66.35-1.1.64-1.36-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.85-2.34 4.7-4.57 4.95.36.31.69.92.69 1.86v2.76c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/>
-                                        </svg>
+                                        <span class="icon"><i class="fab fa-github"></i></span>
                                     </a>
                                 </div>
                             </div>
@@ -208,14 +183,11 @@
                                     <span class="publication-venue">IEEE Access</span>
                                 </div>
                                 <h4>Leveraging statistical shape priors in GAN-based ECG synthesis</h4>
-                                <p class="publication-authors">Nour Neifar, Achraf Ben-Hamadou, Afef Mdhaffar, Mohamed
+                                <p class="publication-authors"><a href="https://neifarnour.github.io/" target="_blank" rel="noopener noreferrer">Nour Neifar</a>, <a href="https://abenhamadou.github.io/" target="_blank" rel="noopener noreferrer">Achraf Ben-Hamadou</a>, Afef Mdhaffar, Mohamed
                                     Jmaiel, Bernd Freisleben</p>
                                 <div class="publication-actions">
                                     <a class="project-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10459195" target="_blank" rel="noopener noreferrer" aria-label="PDF" title="PDF">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                                            <path fill="currentColor" d="M6 2h8l4 4v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1.5V7h3.5L13 3.5Z"/>
-                                            <path fill="currentColor" d="M7 13h10v2H7v-2Zm0 4h7v2H7v-2Zm0-8h10v2H7V9Z"/>
-                                        </svg>
+                                        <span class="icon"><i class="fas fa-file-pdf"></i></span>
                                     </a>
                                 </div>
                             </div>
@@ -233,18 +205,13 @@
                                     <span class="publication-venue">Expert Systems with Applications</span>
                                 </div>
                                 <h4>Self-supervised endoscopic image key-points matching</h4>
-                                <p class="publication-authors">Manel Farhat, Houda Chaabouni, Achraf Ben-Hamadou</p>
+                                <p class="publication-authors">Manel Farhat, Houda Chaabouni, <a href="https://abenhamadou.github.io/" target="_blank" rel="noopener noreferrer">Achraf Ben-Hamadou</a></p>
                                 <div class="publication-actions">
                                     <a class="project-link" href="https://arxiv.org/pdf/2208.11424" target="_blank" rel="noopener noreferrer" aria-label="PDF" title="PDF">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                                            <path fill="currentColor" d="M6 2h8l4 4v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1.5V7h3.5L13 3.5Z"/>
-                                            <path fill="currentColor" d="M7 13h10v2H7v-2Zm0 4h7v2H7v-2Zm0-8h10v2H7V9Z"/>
-                                        </svg>
+                                        <span class="icon"><i class="fas fa-file-pdf"></i></span>
                                     </a>
                                     <a class="project-link" href="https://github.com/abenhamadou/Self-Supervised-Endoscopic-Image-Key-Points-Matching" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                                            <path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.69c-2.78.61-3.37-1.19-3.37-1.19-.46-1.17-1.12-1.48-1.12-1.48-.92-.63.07-.62.07-.62 1.02.07 1.55 1.05 1.55 1.05.9 1.55 2.36 1.1 2.94.84.09-.66.35-1.1.64-1.36-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.85-2.34 4.7-4.57 4.95.36.31.69.92.69 1.86v2.76c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/>
-                                        </svg>
+                                        <span class="icon"><i class="fab fa-github"></i></span>
                                     </a>
                                 </div>
                             </div>
@@ -262,25 +229,18 @@
                                 </div>
                                 <h4>Teeth3DS: A benchmark for teeth segmentation and labeling from intra-oral 3D scans
                                 </h4>
-                                <p class="publication-authors">Achraf Ben-Hamadou, Oussama Smaoui, Houda Chaabouni,
-                                    Ahmed Rekik, Sergi Pujades, Edmond Boyer, Julien Strippoli, Aurelien Thollot, Hugo
+                                <p class="publication-authors"><a href="https://abenhamadou.github.io/" target="_blank" rel="noopener noreferrer">Achraf Ben-Hamadou</a>, Oussama Smaoui, Houda Chaabouni,
+                                    <a href="https://rekikamed.github.io/" target="_blank" rel="noopener noreferrer">Ahmed Rekik</a>, <a href="https://morpheo.inrialpes.fr/people/pujades/" target="_blank" rel="noopener noreferrer">Sergi Pujades</a>, <a href="https://morpheo.inrialpes.fr/people/Boyer/" target="_blank" rel="noopener noreferrer">Edmond Boyer</a>, Julien Strippoli, Aurelien Thollot, Hugo
                                     Setbon, Cyril Trosset, Edouard Ladroit</p>
                                 <div class="publication-actions">
                                     <a class="project-link" href="https://arxiv.org/abs/2402.11520" target="_blank" rel="noopener noreferrer" aria-label="PDF" title="PDF">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                                            <path fill="currentColor" d="M6 2h8l4 4v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1.5V7h3.5L13 3.5Z"/>
-                                            <path fill="currentColor" d="M7 13h10v2H7v-2Zm0 4h7v2H7v-2Zm0-8h10v2H7V9Z"/>
-                                        </svg>
+                                        <span class="icon"><i class="fas fa-file-pdf"></i></span>
                                     </a>
                                     <a class="project-link" href="https://osf.io/xctdy/" target="_blank" rel="noopener noreferrer" aria-label="Dataset" title="Dataset">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                                            <path fill="currentColor" d="M12 2C7.6 2 4 3.8 4 6v12c0 2.2 3.6 4 8 4s8-1.8 8-4V6c0-2.2-3.6-4-8-4Zm0 2c3.9 0 6 .9 6 2s-2.1 2-6 2-6-.9-6-2 2.1-2 6-2Zm0 6c3 0 5.4-.6 6-1.6V10c0 1.1-2.6 2-6 2s-6-.9-6-2V8.4c.6 1 3 1.6 6 1.6Zm0 6c3 0 5.4-.6 6-1.6V16c0 1.1-2.6 2-6 2s-6-.9-6-2v-1.6c.6 1 3 1.6 6 1.6Z"/>
-                                        </svg>
+                                        <span class="icon"><i class="fas fa-database"></i></span>
                                     </a>
                                     <a class="project-link" href="https://github.com/abenhamadou/3DTeethSeg_MICCAI_Challenges" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                                            <path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.69c-2.78.61-3.37-1.19-3.37-1.19-.46-1.17-1.12-1.48-1.12-1.48-.92-.63.07-.62.07-.62 1.02.07 1.55 1.05 1.55 1.05.9 1.55 2.36 1.1 2.94.84.09-.66.35-1.1.64-1.36-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.85-2.34 4.7-4.57 4.95.36.31.69.92.69 1.86v2.76c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/>
-                                        </svg>
+                                        <span class="icon"><i class="fab fa-github"></i></span>
                                     </a>
                                 </div>
                             </div>
@@ -297,13 +257,10 @@
                                     <span class="publication-venue">Expert Systems with Applications</span>
                                 </div>
                                 <h4>Learning Local Representations for Scalable RGB-D Face Recognition</h4>
-                                <p class="publication-authors">Nesrine Grati, Achraf Ben-Hamadou, Mohamed Hammami</p>
+                                <p class="publication-authors">Nesrine Grati, <a href="https://abenhamadou.github.io/" target="_blank" rel="noopener noreferrer">Achraf Ben-Hamadou</a>, Mohamed Hammami</p>
                                 <div class="publication-actions">
                                     <a class="project-link" href="https://www.researchgate.net/publication/339343457_Learning_Local_Representations_for_Scalable_RGB-D_Face_Recognition" target="_blank" rel="noopener noreferrer" aria-label="PDF" title="PDF">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                                            <path fill="currentColor" d="M6 2h8l4 4v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1.5V7h3.5L13 3.5Z"/>
-                                            <path fill="currentColor" d="M7 13h10v2H7v-2Zm0 4h7v2H7v-2Zm0-8h10v2H7V9Z"/>
-                                        </svg>
+                                        <span class="icon"><i class="fas fa-file-pdf"></i></span>
                                     </a>
                                 </div>
                             </div>
@@ -321,13 +278,10 @@
                                 </div>
                                 <h4>Construction of extended 3D field of views of the internal bladder wall surface: A
                                     proof of concept</h4>
-                                <p class="publication-authors">Achraf Ben-Hamadou, Charles Soussen, Christian Daul</p>
+                                <p class="publication-authors"><a href="https://abenhamadou.github.io/" target="_blank" rel="noopener noreferrer">Achraf Ben-Hamadou</a>, Charles Soussen, Christian Daul</p>
                                 <div class="publication-actions">
                                     <a class="project-link" href="https://arxiv.org/pdf/1607.04773" target="_blank" rel="noopener noreferrer" aria-label="PDF" title="PDF">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                                            <path fill="currentColor" d="M6 2h8l4 4v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1.5V7h3.5L13 3.5Z"/>
-                                            <path fill="currentColor" d="M7 13h10v2H7v-2Zm0 4h7v2H7v-2Zm0-8h10v2H7V9Z"/>
-                                        </svg>
+                                        <span class="icon"><i class="fas fa-file-pdf"></i></span>
                                     </a>
                                 </div>
                             </div>
@@ -344,28 +298,19 @@
                                     <span class="publication-venue">Multimedia Tools and Applications</span>
                                 </div>
                                 <h4>An adaptive approach for lip-reading using image and depth data</h4>
-                                <p class="publication-authors">Ahmed Rekik, Achraf Ben-Hamadou, Walid Mahdi</p>
+                                <p class="publication-authors"><a href="https://rekikamed.github.io/" target="_blank" rel="noopener noreferrer">Ahmed Rekik</a>, <a href="https://abenhamadou.github.io/" target="_blank" rel="noopener noreferrer">Achraf Ben-Hamadou</a>, Walid Mahdi</p>
                                 <div class="publication-actions">
                                     <a class="project-link" href="https://abenhamadou.github.io/miraclvc1/index.html" target="_blank" rel="noopener noreferrer" aria-label="Project home" title="Project home">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                                            <path fill="currentColor" d="M12 3.5 3 11.2a1 1 0 0 0 1.3 1.5l.7-.6V20a1 1 0 0 0 1 1h4.5a.5.5 0 0 0 .5-.5v-5h2v5a.5.5 0 0 0 .5.5H18a1 1 0 0 0 1-1v-7.9l.7.6a1 1 0 1 0 1.3-1.5L12 3.5Z"/>
-                                        </svg>
+                                        <span class="icon"><i class="fas fa-home"></i></span>
                                     </a>
                                     <a class="project-link" href="https://www.researchgate.net/publication/279976534_An_adaptive_approach_for_lip-reading_using_image_and_depth_data" target="_blank" rel="noopener noreferrer" aria-label="PDF" title="PDF">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                                            <path fill="currentColor" d="M6 2h8l4 4v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1.5V7h3.5L13 3.5Z"/>
-                                            <path fill="currentColor" d="M7 13h10v2H7v-2Zm0 4h7v2H7v-2Zm0-8h10v2H7V9Z"/>
-                                        </svg>
+                                        <span class="icon"><i class="fas fa-file-pdf"></i></span>
                                     </a>
                                     <a class="project-link" href="https://abenhamadou.github.io/miraclvc1/index.html" target="_blank" rel="noopener noreferrer" aria-label="Dataset" title="Dataset">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                                            <path fill="currentColor" d="M12 2C7.6 2 4 3.8 4 6v12c0 2.2 3.6 4 8 4s8-1.8 8-4V6c0-2.2-3.6-4-8-4Zm0 2c3.9 0 6 .9 6 2s-2.1 2-6 2-6-.9-6-2 2.1-2 6-2Zm0 6c3 0 5.4-.6 6-1.6V10c0 1.1-2.6 2-6 2s-6-.9-6-2V8.4c.6 1 3 1.6 6 1.6Zm0 6c3 0 5.4-.6 6-1.6V16c0 1.1-2.6 2-6 2s-6-.9-6-2v-1.6c.6 1 3 1.6 6 1.6Z"/>
-                                        </svg>
+                                        <span class="icon"><i class="fas fa-database"></i></span>
                                     </a>
                                     <a class="project-link" href="https://www.youtube.com/watch?v=JjXCL6W5GwU&t=36s" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                                            <path fill="currentColor" d="M21.6 7.2a2.7 2.7 0 0 0-1.9-1.9C18 5 12 5 12 5s-6 0-7.7.3a2.7 2.7 0 0 0-1.9 1.9A28.4 28.4 0 0 0 2 12a28.4 28.4 0 0 0 .4 4.8 2.7 2.7 0 0 0 1.9 1.9C6 19 12 19 12 19s6 0 7.7-.3a2.7 2.7 0 0 0 1.9-1.9A28.4 28.4 0 0 0 22 12a28.4 28.4 0 0 0-.4-4.8ZM10 15.2V8.8L15.5 12 10 15.2Z"/>
-                                        </svg>
+                                        <span class="icon"><i class="fab fa-youtube"></i></span>
                                     </a>
                                 </div>
                             </div>
@@ -382,14 +327,11 @@
                                     <span class="publication-venue">Computer Vision and Image Understanding</span>
                                 </div>
                                 <h4>Flexible calibration of structured-light systems projecting point patterns</h4>
-                                <p class="publication-authors">Achraf Ben-Hamadou, Charles Soussen, Christian Daul,
+                                <p class="publication-authors"><a href="https://abenhamadou.github.io/" target="_blank" rel="noopener noreferrer">Achraf Ben-Hamadou</a>, Charles Soussen, Christian Daul,
                                     Walter Blondel, Walid Mahdi</p>
                                 <div class="publication-actions">
                                     <a class="project-link" href="https://abenhamadou.github.io/pdf/Flexible_calibration_of_structured_light.pdf" target="_blank" rel="noopener noreferrer" aria-label="PDF" title="PDF">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                                            <path fill="currentColor" d="M6 2h8l4 4v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1.5V7h3.5L13 3.5Z"/>
-                                            <path fill="currentColor" d="M7 13h10v2H7v-2Zm0 4h7v2H7v-2Zm0-8h10v2H7V9Z"/>
-                                        </svg>
+                                        <span class="icon"><i class="fas fa-file-pdf"></i></span>
                                     </a>
                                 </div>
                             </div>
@@ -409,7 +351,7 @@
                     <p class="footer-subtitle">
                         <a href="../index.html#team">CRNS SmartVision Team</a> /
                         <a href="https://crns.rnrt.tn/" target="_blank" rel="noopener noreferrer">CRNS</a> /
-                        <a href="https://smarts.tn/smartlab/public/" target="_blank" rel="noopener noreferrer">SmartLabs</a> - 2026
+                        <a href="https://smarts.tn/smartlab/public/" target="_blank" rel="noopener noreferrer">SmartsLabs</a> - 2026
                     </p>
                 </div>
             </div>

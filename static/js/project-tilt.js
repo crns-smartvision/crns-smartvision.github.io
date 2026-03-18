@@ -103,10 +103,7 @@
       return;
     }
 
-    const subject = `SmartVision website contact — ${name}`;
-    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n`;
-
-    const mailto = `mailto:${encodeURIComponent(toEmail)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailto = `mailto:${encodeURIComponent(toEmail)}`;
     window.location.href = mailto;
   });
 })();
