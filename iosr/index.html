@@ -1,69 +1,721 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>IOSR — CRNS SmartVision Team</title>
-	<link rel="icon" type="image/png" href="../static/images/logocrns.png?v=20260319" />
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Space+Grotesk:wght@400;500;600&display=swap"
-		rel="stylesheet" />
-	<link rel="stylesheet" href="../static/css/site.css" />
+    <meta charset="utf-8">
+     <meta name="description"
+        content="SS-IoSR: Self-Supervised Intraoral Scans Repair">
+    <meta name="keywords" content="Dental Scan Segmentation, Teeth Classification, Teeth Segmentation, Graph Neural Network, 3D Intraoral scan, Teeth3DS">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SS-IoSR</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+        <!-- <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet"> -->
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" type="image/png" href="../static/images/logocrns.png?v=20260319">
+
+    <style>
+		.render_wrapper {
+			position: relative;
+            height: 300px;
+         }
+        .render_wrapper_small {
+			position: relative;
+            height: 200px;
+         }
+		.render_div {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+        #interpolation-image-wrapper-car{
+            text-align: center;
+        }
+        #interpolation-image-wrapper-chair{
+            text-align: center;
+        }
+        .nested-columns {
+            margin-bottom: 0 !important;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
 </head>
 
 <body>
-	<div class="page-frame">
-		<header class="site-header">
-			<div class="container nav">
-				<div class="brand">
-					<a href="../index.html" aria-label="Back to SmartVision Lab home">
-						<img src="../static/images/crns.png" alt="CRNS Logo" class="brand-logo" />
-					</a>
-					<span class="brand-sep" aria-hidden="true"></span>
-					<a href="../index.html" aria-label="Back to SmartVision Lab home">
-						<img src="../static/images/smarts.png" alt="SM@RTS LAB Logo" class="brand-logo brand-logo--smarts" />
-					</a>
-				</div>
-				<nav class="nav-links">
-					<a href="../index.html">Home</a>
-					<a href="../projects/index.html">Projects</a>
-				</nav>
-			</div>
-		</header>
 
-		<main>
-			<section>
-				<div class="container">
-					<h1 class="section-title">IOSR</h1>
-					<p class="section-lead">Multi-modality segmentation and reconstruction tools.</p>
-					<div class="hero-actions">
-						<a class="button primary" href="../projects/index.html">Back to projects</a>
-						
-					</div>
-				</div>
-			</section>
-		</main>
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">SS-IoSR: Self-Supervised Intraoral Scans Repair</h1>
+                                  <div class="is-size-5 publication-authors">
+                                      <span class="author-block">
+                                      Manel Farhat ,</span>
+                                    <span class="author-block">
+                                      <a href="https://abenhamadou.github.io">Achraf Ben-Hamadou</a>,</span>
+                                    <span class="author-block">
+                                      <a href="https://rekikamed.github.io">Ahmed Rekik</a>,</span>
+                                    <span class="author-block">
+                                      Ons Abida
+                                    </span>
+                                    <span class="author-block">
+                                      Oussama Smaoui
+                                    </span> 
+                                  </div>
 
-		 <footer class="site-footer">
-            <div class="container">
-                <div class="footer-banner">
-                    <div class="footer-deco" aria-hidden="true">
-						<img src="../static/images/points.svg" alt="" />
+                           <div class="is-size-5 publication-authors">
+                            <span class="author-block">Centre de Recherche en Numerique de Sfax, Tunisia</span><br>
+                           </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- PDF Link. -->
+                                <span class="link-block">
+                                    <a href=""
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </span>
+                                        <span>Paper</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a class="external-link button is-normal is-rounded is-dark" href="">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>
+                                              <!-- github Link. -->
+              <span class="link-block">
+                <a href="https://github.com/crns-smartvision/iosr" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+                            <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://osf.io/3e6ju" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+                </span>
+                
+                                
+                                <!-- Dataset Link. -->
+                                <span class="link-block"></span>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="footer-title"></h3>
-                    <p class="footer-subtitle">
-                        <a href="#team">CRNS SmartVision Team</a> /
-                        <a href="https://crns.rnrt.tn/" target="_blank" rel="noopener noreferrer">CRNS</a> /
-                        <a href="https://smarts.tn/smartlab/public/" target="_blank" rel="noopener noreferrer">SmartsLabs</a> - 2026
-                    </p>
-                    
                 </div>
             </div>
-        </footer>
-	</div>
+        </div>
+    </section>
+
+
+        <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                        Intraoral 3D scans are fundamental in digital dentistry but
+                        often contain geometric artifacts such as holes and non-manifold struc-
+                        tures due to acquisition constraints and complex dental anatomy. We
+                        introduce SS-IoSR, a self-supervised hybrid framework for intraoral scan
+                        repair that combines masked autoencoder-based geometric representa-
+                        tion learning with a hybrid explicit–implicit reconstruction strategy. The
+                        model operates on localized point cloud patches guided by clinician-
+                        selected seed points, enabling anatomically consistent reconstruction of
+                        missing regions. A differentiable Poisson-based refinement module fur-
+                        ther improves surface continuity and geometric fidelity. Experimental
+                        evaluations on public and in-house intraoral scan datasets show that
+                        SS-IoSR consistently outperforms state-of-the-art completion methods
+                        across multiple metrics, demonstrating improved reconstruction accuracy
+                        and higher structural similarity for clinically relevant dental regions.
+                      </p>
+                    </div>
+                    <img src="./static/teaser/graphical_abstract.png"/>
+                </div>
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+<!--        <section class="hero is-light is-small">-->
+<!--        <div class="hero-body">-->
+<!--            <div class="container">-->
+<!--                <div id="results-carousel" class="carousel results-carousel">-->
+<!--                    <div class="item item-steve render_wrapper">-->
+<!--			            <div id="mesh_chair_0" class="render_div"></div>-->
+<!--                    </div>-->
+<!--                    <div class="item item-steve render_wrapper">-->
+<!--			            <div id="mesh_chair_1" class="render_div"></div>-->
+<!--                    </div>-->
+<!--                    <div class="item item-steve render_wrapper">-->
+<!--			            <div id="mesh_chair_2" class="render_div"></div>-->
+<!--                    </div>-->
+<!--                    <div class="item item-steve render_wrapper">-->
+<!--			            <div id="mesh_chair_3" class="render_div"></div>-->
+<!--                    </div>-->
+<!--                    <div class="item item-steve render_wrapper">-->
+<!--			            <div id="mesh_car_0" class="render_div"></div>-->
+<!--                    </div>-->
+<!--                    <div class="item item-steve render_wrapper">-->
+<!--			            <div id="mesh_car_1" class="render_div"></div>-->
+<!--                    </div>-->
+<!--                    <div class="item item-steve render_wrapper">-->
+<!--			            <div id="mesh_car_2" class="render_div"></div>-->
+<!--                    </div>-->
+<!--                    <div class="item item-steve render_wrapper">-->
+<!--			            <div id="mesh_car_3" class="render_div"></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div style="text-align: center;">Press <b>R</b> to reset view. </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+
+    <section class="section">
+    <div class="container is-max-desktop">
+
+        <!-- Overview. -->
+        <div class="columns is-centered" style="margin-top: 15px">
+            <div class="column is-full-width">
+                <h2 class="title is-4">Method Overview</h2>
+                <img src="./static/teaser/pipline.png"/>
+                <div class="content has-text-justified" style="padding-top: 15px">
+                    <p>The proposed framework is trained in two phases. </p>
+                     <p>  Phase 1 : We employ a reconstruction-based masked autoencoder (MAE) to reconstruct masked point patches. This pre-training objective encourages the model to learn discriminative local geometric representations, enabling the capture of fine-grained surface details. </p>
+                     <p>  Phase 2 : The pre-trained MAE serves as the backbone and is integrated with an implicit refinement module. This module enhances the initially reconstructed point cloud by leveraging the continuous modeling capacity of implicit functions to improve geometric fidelity and surface consistency. </p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    </section>
+
+    <section class="section">
+    <div class="container is-max-desktop">
+
+        <!-- Overview. -->
+        <div class="columns is-centered" style="margin-top: 15px">
+            <div class="column is-full-width">
+                <h2 class="title is-4">Results</h2>
+                <img src="./static/teaser/results.png"/>
+                <div class="content has-text-justified" style="padding-top: 15px">
+                     <p> Comparisons with State-of-the-Art point cloud completion methods. </p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h3 class="title">Citing us</h3>
+            <div class="content has-text-justified">
+                <p><strong>For our SS-IoSR work:</strong></p>
+                <pre><code>@inproceedings{Farhat_2026_MICCAI,
+    author    = {Manel Farhat and Achraf Ben-hamadou and Ahmed Rekik and Ons Abida and Oussama Smaoui},
+    title     = {SS-IoSR: Self-Supervised Intraoral Scans Repair},
+    booktitle = {29th International Conference on Medical Image Computing and Computer Assisted Intervention, {MICCAI} 2026},
+    year      = {2026},
+}</code></pre>
+                <p><strong>For the Teeth3DS+ dataset:</strong></p>
+                <pre><code>@article{ben2022teeth3ds,
+    title={{Teeth3Ds+: An Extended Benchmark for Intra-oral 3D Scans Analysis}},
+    author={Ben-Hamadou, Achraf and Neifar, Nour and Rekik, Ahmed and Smaoui, Oussama and Bouzguenda, Firas and Pujades, Sergi and Boyer, Edmond and Ladroit, Edouard},
+    journal={arXiv preprint arXiv:2210.06094},
+    year={2022}
+}</code></pre>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <a class="icon-link" href="">
+                    <i class="fas fa-file-pdf"></i>
+                </a>
+                <a class="icon-link" href="https://github.com/abenhamadou/3DTeethSeg22_challenge" class="external-link" disabled>
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p style="text-align:center">
+                            Source code mainly borrowed from <a href="https://niessnerlab.org/members/yawar_siddiqui/profile.html">Yawar Siddiqui</a>'s <a
+                                href="https://nihalsid.github.io/texturify/">Texturify website</a>.
+                        </p>
+<!--                        <p style="text-align:center">-->
+<!--                            Please contact <a href="https://niessnerlab.org/members/yawar_siddiqui/profile.html">Yawar Siddiqui</a> for feedback and questions.-->
+<!--                        </p>-->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Import maps polyfill -->
+    <!-- Remove this when import maps will be widely supported -->
+    <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "./js/three.module.js"
+            }
+        }
+    </script>
+
+    <script type="module">
+
+        import * as THREE from 'three';
+
+        import { PLYLoader } from './js/PLYLoader.js';
+        import { OrbitControls } from './js/OrbitControls.js'
+        // const API = {
+		// 		lightProbeIntensity: 1.0,
+		// 		directionalLightIntensity: 0.6,
+		// 		envMapIntensity: 1
+        // };
+
+        let div_to_scene = {
+            "mesh_chair_0": {
+                "geo": null,
+                "color": null,
+            },
+            "mesh_chair_1": {
+                "geo": null,
+                "color": null,
+            },
+            "mesh_chair_2": {
+                "geo": null,
+                "color": null,
+            },
+            "mesh_chair_3": {
+                "geo": null,
+                "color": null,
+            },
+            "mesh_car_0": {
+                "geo": null,
+                "color": null,
+            },
+            "mesh_car_1": {
+                "geo": null,
+                "color": null,
+            },
+            "mesh_car_2": {
+                "geo": null,
+                "color": null,
+            },
+            "mesh_car_3": {
+                "geo": null,
+                "color": null,
+            }
+        }
+        let div_to_render_scene = {
+            "mesh_style_0": {
+                "0": null,
+                "1": null,
+                "2": null,
+                "geo": null,
+            },
+            "mesh_style_1": {
+                "0": null,
+                "1": null,
+                "2": null,
+                "geo": null,
+            },
+            "mesh_style_2": {
+                "0": null,
+                "1": null,
+                "2": null,
+                "geo": null,
+            },
+            "mesh_style_3": {
+                "0": null,
+                "1": null,
+                "2": null,
+                "geo": null,
+            },
+        }
+        let mouse_button_down = false;
+        let list_of_orbit_controls = []
+        let style_camera = null;
+        let render_colors = true;
+        let style_id = "0"
+
+        function setup_camera(div_name){
+            let container = document.getElementById(div_name);
+            let width = container.parentElement.clientWidth;
+            let height = container.parentElement.clientHeight;
+            console.log(width, height)
+            let camera = new THREE.PerspectiveCamera( 35, width / height, 0.1, 50 );
+            let camera_init_position = new THREE.Vector3( -1.5, 0.35, 1.2 );
+            if (div_name.includes("chair")){
+                camera_init_position = camera_init_position.multiplyScalar(1.5)
+            }
+            else if (div_name.includes("style")) {
+                camera_init_position = camera_init_position.multiplyScalar(1.25)
+            }
+            camera.position.set(camera_init_position.x, camera_init_position.y, camera_init_position.z);
+            return camera;
+        }
+
+        function setup_render_divs(div_name, mesh_path){
+            let camera = setup_camera(div_name)
+            let orbit_control = create_render_div(camera, div_name, mesh_path)
+            list_of_orbit_controls.push(orbit_control)
+        }
+
+        function setup_style_render_divs(div_name, mesh_path){
+            if (style_camera == null) {
+                style_camera = setup_camera(div_name)
+            }
+            let orbit_control = create_style_render_div(style_camera, div_name, mesh_path, true)
+            list_of_orbit_controls.push(orbit_control)
+            document.getElementById("style_button_0").addEventListener("click", set_style_0)
+            document.getElementById("style_button_1").addEventListener("click", set_style_1)
+            document.getElementById("style_button_2").addEventListener("click", set_style_2)
+        }
+
+        function create_render_div(camera, div_id, mesh_path) {
+            let container;
+            let renderer, controls;
+
+            init();
+            animate();
+
+            function init() {
+
+                container = document.getElementById(div_id);
+                let width = container.parentElement.clientWidth;
+                let height = container.parentElement.clientHeight;
+
+
+                // div_to_scene[div_id]["color"] = new THREE.Scene();
+                div_to_scene[div_id]["geo"] = new THREE.Scene();
+                // div_to_scene[div_id]["color"].background = new THREE.Color( 0xffffff );
+                div_to_scene[div_id]["geo"].background = new THREE.Color( 0xffffff );
+
+                // PLY file
+
+                const loader = new PLYLoader();
+                loader.load( mesh_path, function ( geometry ) {
+
+                    geometry.computeVertexNormals();
+                    let material_color = new THREE.MeshBasicMaterial( {
+                        color: 0xffffff,
+                        vertexColors: THREE.VertexColors,
+                        roughness: 1,
+                        wireframe: true,
+                        envMap: THREE.reflection} );
+                    let material_geo = new THREE.MeshStandardMaterial( { vertexColors: THREE.VertexColors, roughness: 0.5, color: 0x444444, }); // flatShading: true, envMapIntensity: API.envMapIntensity } )
+
+
+                    // const mesh_color = new THREE.Mesh( geometry, material_color );
+                    const mesh_geo = new THREE.Mesh( geometry, material_geo );
+
+                    // div_to_scene[div_id]["color"].add( mesh_color );
+                    div_to_scene[div_id]["geo"].add( mesh_geo );
+
+                }, (xhr) => {
+                    console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+                }, (error) => {
+                    console.log(error)
+                }
+                );
+
+                // lights
+                div_to_scene[div_id]["geo"].add( new THREE.HemisphereLight( 0xffffff, 0xffffff ) );
+                addShadowedLight(div_to_scene[div_id]["geo"], 1, 1, 1, 0xffffff, 1.35 );
+                addShadowedLight(div_to_scene[div_id]["geo"],  0.5, 1, - 1, 0xffffff, 1.5);
+                addShadowedLight(div_to_scene[div_id]["geo"],  0, 0, 0, 0xffffff, 1 );
+
+                // renderer
+
+                renderer = new THREE.WebGLRenderer( { antialias: true } );
+                renderer.setPixelRatio( window.devicePixelRatio );
+                renderer.setSize( width, height);
+                renderer.outputEncoding = THREE.sRGBEncoding;
+
+                renderer.shadowMap.enabled = true;
+                // Assuming renderer is your THREE.WebGLRenderer instance
+                renderer.domElement.addEventListener('dblclick', onDoubleClick, false);
+
+
+                container.appendChild( renderer.domElement );
+
+                controls = new OrbitControls(camera, renderer.domElement)
+                controls.enableDamping = false
+
+                // resize
+
+                window.addEventListener( 'resize', onWindowResize );
+
+        }
+        function onDoubleClick(event) {
+                // Convert mouse coordinates to normalized device coordinates (NDC)
+                const mouse = new THREE.Vector2();
+                mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+                mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+                // Raycasting to find intersections with the mesh
+                const raycaster = new THREE.Raycaster();
+                raycaster.setFromCamera(mouse, camera); // Assuming 'camera' is your THREE.PerspectiveCamera instance
+
+                // Find intersected points
+                const intersects = raycaster.intersectObject(div_to_scene[div_id]["geo"]);
+                    console.log("intersected", intersects.length)
+                // Check if any points are intersected
+                if (intersects.length > 0) {
+                    // Get the selected point
+                    const selectedPoint = intersects[0].point;
+                    camera.position.copy(selectedPoint);
+
+                    // Look at the center of the scene (you can adjust this based on your needs)
+                    camera.lookAt(0, 0, 0);
+
+                    // Update the camera's matrices
+                    camera.updateProjectionMatrix();
+                    camera.updateMatrixWorld();
+
+                     controls.target.copy(selectedPoint);
+                    // Do something with the selected point if needed
+                    console.log('Selected Point:', selectedPoint);
+
+                    // Do something with the selected point
+                    console.log('Selected Point:', selectedPoint);
+                }
+            }
+            function onWindowResize() {
+                let width = container.clientWidth;
+                let height = container.clientHeight;
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+                renderer.setSize( width, height );
+            }
+            function animate() {
+                requestAnimationFrame( animate );
+                render();
+            }
+
+            function render() {
+                // renderer.render( div_to_scene[div_id][render_colors ? "color" : "geo"], camera );
+                renderer.render( div_to_scene[div_id]["geo"], camera );
+                controls.update();
+            }
+
+            return controls;
+        }
+
+        function create_style_render_div(camera, div_id, mesh_path) {
+            let container;
+            let renderer, controls;
+
+            init();
+            animate();
+
+            function init() {
+
+                container = document.getElementById(div_id);
+                let width = container.parentElement.clientWidth;
+                let height = container.parentElement.clientHeight;
+
+
+                div_to_render_scene[div_id]["0"] = new THREE.Scene();
+                div_to_render_scene[div_id]["1"] = new THREE.Scene();
+                div_to_render_scene[div_id]["2"] = new THREE.Scene();
+                div_to_render_scene[div_id]["0"].background = new THREE.Color( 0xffffff );
+                div_to_render_scene[div_id]["1"].background = new THREE.Color( 0xffffff );
+                div_to_render_scene[div_id]["2"].background = new THREE.Color( 0xffffff );
+                div_to_render_scene[div_id]["geo"] = new THREE.Scene();
+                div_to_render_scene[div_id]["geo"].background = new THREE.Color( 0xffffff );
+
+                // PLY file
+
+                const loader = new PLYLoader();
+                ["0", "1", "2"].forEach(id => {
+                    loader.load( mesh_path + id + ".ply", function ( geometry ) {
+                        geometry.computeVertexNormals();
+                        let material = new THREE.MeshBasicMaterial( { color: 0xffffff, vertexColors: THREE.VertexColors} );
+                        const mesh_color = new THREE.Mesh( geometry, material );
+                        div_to_render_scene[div_id][id].add( mesh_color );
+                        if (id === "0") {
+                            let material_geo = new THREE.MeshStandardMaterial( { color: 0x444444, flatShading: true } )
+                            const mesh_geo = new THREE.Mesh( geometry, material_geo );
+                            div_to_render_scene[div_id]["geo"].add( mesh_geo );
+                        }
+                    }, (xhr) => {
+                        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+                    }, (error) => {
+                        console.log(error)
+                    }
+                    );
+                })
+
+                div_to_render_scene[div_id]["geo"].add( new THREE.HemisphereLight( 0x333333, 0x222222 ) );
+                addShadowedLight(div_to_render_scene[div_id]["geo"], 1, 1, 1, 0xffffff, 1.35 );
+                addShadowedLight(div_to_render_scene[div_id]["geo"],  0.5, 1, - 1, 0xffffff, 1 );
+
+                // renderer
+
+                renderer = new THREE.WebGLRenderer( { antialias: true } );
+                renderer.setPixelRatio( window.devicePixelRatio );
+                renderer.setSize( width, height);
+                renderer.outputEncoding = THREE.sRGBEncoding;
+
+                renderer.shadowMap.enabled = true;
+
+                container.appendChild( renderer.domElement );
+
+                controls = new OrbitControls(camera, renderer.domElement)
+                controls.enableDamping = false
+                renderer.domElement.addEventListener('dblclick', onDoubleClick, false);
+
+                // resize
+
+                window.addEventListener( 'resize', onWindowResize );
+
+        }
+            function onWindowResize() {
+                let width = container.clientWidth;
+                let height = container.clientHeight;
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+                renderer.setSize( width, height );
+            }
+            function animate() {
+                requestAnimationFrame( animate );
+                render();
+            }
+
+            function render() {
+                let scene =  div_to_render_scene[div_id]["geo"] //render_colors ? div_to_render_scene[div_id][style_id]:
+                renderer.render( scene, camera );
+                controls.update();
+            }
+
+            return controls;
+        }
+
+        function addShadowedLight(scene, x, y, z, color, intensity ) {
+
+            const directionalLight = new THREE.DirectionalLight( color, intensity );
+            directionalLight.position.set( x, y, z );
+            scene.add( directionalLight );
+
+            directionalLight.castShadow = true;
+
+            const d = 1;
+            directionalLight.shadow.camera.left = - d;
+            directionalLight.shadow.camera.right = d;
+            directionalLight.shadow.camera.top = d;
+            directionalLight.shadow.camera.bottom = - d;
+
+            directionalLight.shadow.camera.near = 1;
+            directionalLight.shadow.camera.far = 4;
+
+            directionalLight.shadow.mapSize.width = 1024;
+            directionalLight.shadow.mapSize.height = 1024;
+
+            directionalLight.shadow.bias = - 0.001;
+
+        }
+
+        document.addEventListener('keydown', logKey);
+
+        function logKey(evt) {
+            // if (evt.keyCode === 71 && !mouse_button_down) {
+            //     switch_geometry()
+            // }
+            if (evt.keyCode === 82 && !mouse_button_down) {
+                reset_orbit_controls()
+            }
+        }
+
+        function switch_geometry() {
+            render_colors = !render_colors
+        }
+
+        function reset_orbit_controls() {
+            list_of_orbit_controls.forEach(oc => {
+                oc.reset()
+            })
+        }
+
+        function set_style_0(){
+            style_id = "0"
+        }
+
+        function set_style_1(){
+            style_id = "1"
+        }
+
+        function set_style_2(){
+            style_id = "2"
+        }
+
+        document.body.onmousedown = function(evt) {
+            if (evt.button === 0)
+                mouse_button_down = true
+        }
+        document.body.onmouseup = function(evt) {
+            if (evt.button === 0)
+                mouse_button_down = false
+        }
+
+        window.onload = function() {
+            let slider = document.getElementsByClassName("slider")[0]
+            slider.removeAttribute("tabIndex")
+            // slider.addEventListener("mouseout", reset_orbit_controls);
+            setup_render_divs("mesh_chair_0", './models/scan_0.ply')
+            setup_render_divs("mesh_chair_1", './models/scan_1.ply')
+            setup_render_divs("mesh_chair_2", './models/scan_2.ply')
+            setup_render_divs("mesh_chair_3", './models/scan_3.ply')
+            setup_render_divs("mesh_car_0", './models/scan_4.ply')
+            // setup_render_divs("mesh_car_1", './models/scan_5.ply')
+            // setup_render_divs("mesh_car_2", './models/car_00848.ply')
+            // setup_render_divs("mesh_car_3", './models/car_00944.ply')
+            // setup_style_render_divs("mesh_style_0", './models/chair_style_0')
+            // setup_style_render_divs("mesh_style_1", './models/chair_style_1')
+            // setup_style_render_divs("mesh_style_2", './models/chair_style_2')
+            // setup_style_render_divs("mesh_style_3", './models/chair_style_3')
+        };
+
+    </script>
 </body>
 
 </html>
