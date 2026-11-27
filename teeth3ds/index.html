@@ -349,6 +349,7 @@ $('#return-to-top').click(function() {      // When arrow is clicked
       <p>The Mean Average Precision (mAP) evaluates the accuracy of keypoint localization by assessing both the confidence of predictions and their alignment with ground truth across multiple distance thresholds.
       It is computed by first generating precision-recall curves at varying confidence score cutoffs, then calculating the area under these curves for each distance threshold and landmark category.
       The mAP is derived by averaging the AP values across all thresholds for each category. A higher mAP reflects the model's ability to make confident, accurate predictions while minimizing false positives and poorly localized detections, emphasizing the precision aspect of model performance.
+       Thirty distance thresholds are used, from 0.1 mm to 3 mm in steps of 0.1 mm.
       </p>
       <h5>Mean Average Recall</h5>
       <p>Mean Average Recall (mAR) measures the model's ability to detect all ground truth keypoints, providing an assessment of prediction completeness.
@@ -356,10 +357,8 @@ $('#return-to-top').click(function() {      // When arrow is clicked
        and the area under the recall curve is determined for each landmark category across all thresholds. The mAR is then derived by averaging the AR values for each category, resulting in a separate mAR value for every landmark category. A higher mAR reflects the model's capacity to detect a significant proportion of true keypoints, independent of prediction confidence, making it a valuable metric for evaluating coverage.
       </p>
       <h5>Ranking</h5>
-      <p>To ensure robust rankings, we will employ a point-based ranking method enhanced by bootstrapping. The process begins with the computation of the mAP and mAR metrics for each landmark category. 
-        Teams are then pairwise compared for each metric using the Wilcoxon Signed Rank Test. A team is awarded one point for each comparison where it is deemed statistically superior (p-value < 0.001), resulting in a "total point count" that reflects the number of comparisons won. Bootstrapping is applied by resampling 10% of the data and repeating the pairwise comparison process on the remaining data, generating a "total point count" for each resampling iteration. 
-        This process is repeated 100 times. The final point score for each team is normalized by the total number of comparisons, calculated as 
-        The normalized scores are then aggregated to produce the final ranking, ensuring a statistically robust and fair evaluation of performance.</p>
+      <p>To ensure robust rankings, we employ a point-based ranking method combined with repeated subsampling. The AP and AR of each of the six landmark classes are first computed on each test scan. In each of 100 iterations, 90% of the test scans are drawn at random without replacement; for every pair of teams, landmark class and metric, a two-sided Wilcoxon signed-rank test is applied to the paired per-scan values, and one point is awarded to the team with the higher mean value if p &lt; 0.001.
+        The ranking score of a team is its total number of points divided by the maximum number of points it can obtain, and teams are ranked by decreasing ranking score.</p>
        <h3>Leaderboard</h3>
       <div class="table-container">
         <table>
@@ -384,12 +383,12 @@ $('#return-to-top').click(function() {      // When arrow is clicked
                 <tr>
                     <td>Radboud</td>
                     <td></td>
-                    <td>0.9172</td>
-                    <td>0.772</td>
-                    <td>0.768</td>
-                    <td>0.793</td>
-                    <td>0.792</td>
-                    <td>0.785</td>
+                    <td>0.9015</td>
+                    <td>0.804</td>
+                    <td>0.801</td>
+                    <td>0.826</td>
+                    <td>0.825</td>
+                    <td>0.818</td>
                     <td>0.675</td>
                     <td>0.637</td>
                     <td>0.661</td>
@@ -399,12 +398,12 @@ $('#return-to-top').click(function() {      // When arrow is clicked
                 <tr>
                     <td>ChohoTech</td>
                     <td></td>
-                    <td>0.8325</td>
-                    <td>0.765</td>
-                    <td>0.761</td>
-                    <td>0.78</td>
-                    <td>0.781</td>
-                    <td>0.775</td>
+                    <td>0.7993</td>
+                    <td>0.797</td>
+                    <td>0.794</td>
+                    <td>0.813</td>
+                    <td>0.814</td>
+                    <td>0.808</td>
                     <td>0.627</td>
                     <td>0.586</td>
                     <td>0.625</td>
@@ -414,12 +413,12 @@ $('#return-to-top').click(function() {      // When arrow is clicked
                 <tr>
                     <td>YY-LAB</td>
                     <td></td>
-                    <td>0.6224</td>
-                    <td>0.684</td>
-                    <td>0.726</td>
-                    <td>0.748</td>
-                    <td>0.705</td>
-                    <td>0.719</td>
+                    <td>0.5615</td>
+                    <td>0.714</td>
+                    <td>0.758</td>
+                    <td>0.781</td>
+                    <td>0.736</td>
+                    <td>0.751</td>
                     <td>0.554</td>
                     <td>0.569</td>
                     <td>0.601</td>
@@ -429,12 +428,12 @@ $('#return-to-top').click(function() {      // When arrow is clicked
                 <tr>
                     <td>YN-LAB</td>
                     <td></td>
-                    <td>0.3171</td>
-                    <td>0.656</td>
-                    <td>0.667</td>
-                    <td>0.61</td>
-                    <td>0.657</td>
-                    <td>0.643</td>
+                    <td>0.2587</td>
+                    <td>0.685</td>
+                    <td>0.698</td>
+                    <td>0.638</td>
+                    <td>0.686</td>
+                    <td>0.672</td>
                     <td>0.538</td>
                     <td>0.522</td>
                     <td>0.511</td>
@@ -444,51 +443,37 @@ $('#return-to-top').click(function() {      // When arrow is clicked
                 <tr>
                     <td>IGIP-LAB</td>
                     <td></td>
-                    <td>0.1358</td>
-                    <td>0.636</td>
-                    <td>0.59</td>
-                    <td>0.634</td>
-                    <td>0.523</td>
-                    <td>0.59</td>
+                    <td>0.1440</td>
+                    <td>0.666</td>
+                    <td>0.619</td>
+                    <td>0.665</td>
+                    <td>0.549</td>
+                    <td>0.619</td>
                     <td>0.519</td>
                     <td>0.445</td>
                     <td>0.505</td>
-                    <td>0.41</td>
+                    <td>0.410</td>
                     <td>0.466</td>
-                </tr>
-                <tr>
-                    <td>CG_sayaka</td>
-                    <td></td>
-                    <td>0.1253</td>
-                    <td>0.574</td>
-                    <td>0.553</td>
-                    <td>0.531</td>
-                    <td>0.529</td>
-                    <td>0.541</td>
-                    <td>0.55</td>
-                    <td>0.476</td>
-                    <td>0.501</td>
-                    <td>0.481</td>
-                    <td>0.498</td>
                 </tr>
                 <tr>
                     <td>3DIMLAND</td>
                     <td></td>
-                    <td>0.0325</td>
-                    <td>0.594</td>
-                    <td>0.621</td>
-                    <td>0.551</td>
-                    <td>0.575</td>
-                    <td>0.578</td>
+                    <td>0.0418</td>
+                    <td>0.624</td>
+                    <td>0.653</td>
+                    <td>0.582</td>
+                    <td>0.605</td>
+                    <td>0.608</td>
                     <td>0.457</td>
                     <td>0.459</td>
-                    <td>0.459</td>
-                    <td>0.459</td>
+                    <td>0.426</td>
+                    <td>0.431</td>
                     <td>0.438</td>
                 </tr>
             </tbody>
         </table>
     </div>
+      <p><em>Updated in November 2026: the values are those reported in the Medical Image Analysis paper, computed with 30 distance thresholds from 0.1 to 3 mm, and the ranking score is computed over the six teams of the final phase. The ranking of the teams is unchanged.</em></p>
 
   </div>
 </div>
